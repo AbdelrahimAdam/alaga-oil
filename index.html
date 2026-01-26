@@ -7,7 +7,7 @@
     <meta name="keywords" content="زيت العلقه, صحة رجالية, منتجات طبيعية, ثقة, رجولة, دعم فني">
     <title>زيت العلقه| زيت العلقه</title>
     <!-- Google Search Console Verification -->
-    <meta name="google-site-verification" content="5EZpaRPY-F02w-IGuucQZXRTo-2KK0fhG0RZ-jNUtPY"/>
+    <meta name="google-site-verification"content="5EZpaRPY-F02w-IGuucQZXRTo-2KK0fhG0RZ-jNUtPY"/>
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
     <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
@@ -240,7 +240,7 @@
             letter-spacing: 1px;
         }
 
-        /* Mobile Menu Button - FIXED */
+        /* Mobile Menu Button */
         .mobile-menu-btn {
             display: flex;
             align-items: center;
@@ -252,19 +252,18 @@
             cursor: pointer;
             padding: var(--spacing-xs);
             transition: var(--transition-fast);
-            width: 44px;
-            height: 44px;
+            min-width: 44px;
+            min-height: 44px;
             z-index: 1001;
-            border-radius: var(--radius-md);
         }
 
         .mobile-menu-btn:hover {
             color: var(--color-gold);
-            background: rgba(212, 175, 55, 0.1);
         }
 
-        /* Navigation - Mobile First - FIXED */
+        /* Navigation - Mobile First */
         .main-nav {
+            display: none;
             position: fixed;
             top: 0;
             right: -100%;
@@ -275,12 +274,13 @@
             -webkit-backdrop-filter: blur(20px);
             padding: 80px var(--spacing-lg) var(--spacing-xl);
             transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            z-index: 999;
+            z-index: 1000;
             box-shadow: -5px 0 30px rgba(0, 0, 0, 0.5);
             overflow-y: auto;
         }
 
         .main-nav.show {
+            display: flex;
             right: 0;
         }
 
@@ -302,7 +302,6 @@
             align-items: center;
             justify-content: space-between;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            min-height: 44px;
         }
 
         .nav-link:hover,
@@ -320,7 +319,7 @@
             width: 100%;
             height: 100%;
             background: rgba(0, 0, 0, 0.7);
-            z-index: 998;
+            z-index: 999;
             opacity: 0;
             visibility: hidden;
             transition: all 0.3s ease;
@@ -332,13 +331,13 @@
             visibility: visible;
         }
 
-        /* Button Styles - Mobile First - FIXED SIZE */
+        /* Button Styles - Mobile First */
         .btn {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 0.5rem;
-            padding: 0.75rem 1.5rem;
+            gap: var(--spacing-sm);
+            padding: var(--spacing-sm) var(--spacing-lg);
             border-radius: var(--radius-round);
             font-size: var(--text-base);
             font-weight: 500;
@@ -349,17 +348,10 @@
             text-align: center;
             position: relative;
             overflow: hidden;
-            text-decoration: none;
-            min-height: 44px;
             width: 100%;
-            max-width: 100%;
-        }
-
-        @media (min-width: 768px) {
-            .btn {
-                width: auto;
-                min-width: 140px;
-            }
+            min-height: 44px;
+            text-decoration: none;
+            margin: var(--spacing-xs) 0;
         }
 
         .btn::before {
@@ -411,25 +403,23 @@
         }
 
         .btn-large {
-            padding: 1rem 2rem;
+            padding: var(--spacing-md) var(--spacing-xl);
             font-size: var(--text-lg);
-            min-height: 52px;
         }
 
         .btn-small {
-            padding: 0.5rem 1rem;
+            padding: var(--spacing-xs) var(--spacing-md);
             font-size: var(--text-sm);
-            min-height: 36px;
         }
 
         .btn-block {
             width: 100%;
         }
 
-        /* Hero Section */
+        /* Hero Section - Mobile First (نصف الشاشة) */
         .hero {
             position: relative;
-            min-height: 50vh;
+            min-height: 50vh; /* نصف الشاشة على الجوال */
             display: flex;
             align-items: center;
             padding-top: 70px;
@@ -459,6 +449,7 @@
             opacity: 0.3;
         }
 
+        /* تحسين محتوى الهيرو - تماماً كما في الملف الأصلي */
         .hero-content-wrapper {
             position: relative;
             z-index: 2;
@@ -532,18 +523,6 @@
             width: 100%;
         }
 
-        @media (min-width: 768px) {
-            .hero-actions {
-                flex-direction: row;
-                flex-wrap: wrap;
-            }
-            
-            .hero-actions .btn {
-                flex: 1;
-                min-width: 200px;
-            }
-        }
-
         .hero-scroll-indicator {
             display: flex;
             align-items: center;
@@ -564,7 +543,6 @@
             margin-left: auto;
             border: 1px solid rgba(255, 255, 255, 0.1);
             transition: all 0.3s ease;
-            min-height: 44px;
         }
 
         .hero-scroll-indicator:hover {
@@ -595,16 +573,14 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 44px;
-            height: 44px;
+            width: 40px;
+            height: 40px;
             border-radius: var(--radius-circle);
             background: rgba(212, 175, 55, 0.1);
             color: var(--color-gold);
             font-size: var(--text-lg);
             transition: var(--transition-normal);
             border: 1px solid rgba(212, 175, 55, 0.3);
-            min-width: 44px;
-            min-height: 44px;
         }
 
         .social-link:hover {
@@ -614,7 +590,7 @@
             box-shadow: var(--shadow-gold);
         }
 
-        /* Video Section */
+        /* Video Section - التصميم الأصلي تماماً */
         .video-demo-section {
             padding: var(--spacing-xxl) var(--container-padding);
             background: var(--color-black);
@@ -643,9 +619,10 @@
             color: var(--color-light-gray);
         }
 
+        /* شبكة الفيديوهات - التصميم الأصلي */
         .videos-grid {
             display: grid;
-            grid-template-columns: 1fr;
+            grid-template-columns: 1fr; /* عمود واحد على الجوال */
             gap: var(--spacing-xl);
             margin: var(--spacing-xl) 0;
         }
@@ -683,7 +660,7 @@
         .video-player-wrapper {
             position: relative;
             width: 100%;
-            padding-bottom: 56.25%;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
             height: 0;
             overflow: hidden;
             background: transparent;
@@ -717,11 +694,24 @@
             background: rgba(0, 0, 0, 0.3);
         }
 
+        /* تحديث مهم: استخدام صورة مختلفة للفيديو الثاني */
+        .video-placeholder::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        /* الصورة الأولى - الفيديو التوضيحي */
         #videoPlaceholder::before {
             background: url('assets/images/video-preview.jpg') center center/cover no-repeat;
             opacity: 0.6;
         }
 
+        /* الصورة الثانية - فيديو الاستخدام */
         #usageVideoPlaceholder::before {
             background: url('assets/images/usage-preview.jpg') center center/cover no-repeat;
             opacity: 0.6;
@@ -738,6 +728,7 @@
             pointer-events: none;
         }
 
+        /* تحسين زر التشغيل في منتصف الفيديو */
         .video-placeholder-icon {
             font-size: clamp(2.5rem, 5vw, 3rem);
             color: var(--color-gold);
@@ -866,7 +857,7 @@
             margin-top: var(--spacing-lg);
         }
 
-        /* Story Grid */
+        /* Story Grid - Mobile First */
         .story-grid {
             display: grid;
             grid-template-columns: 1fr;
@@ -1002,7 +993,6 @@
             color: var(--color-white);
             border: 1px solid rgba(255, 255, 255, 0.1);
             transition: var(--transition-normal);
-            min-height: 32px;
         }
 
         .tag:hover {
@@ -1035,12 +1025,6 @@
             margin-top: var(--spacing-xl);
         }
 
-        @media (min-width: 768px) {
-            .product-cta {
-                flex-direction: row;
-            }
-        }
-
         .product-hero-image {
             position: relative;
             z-index: 1;
@@ -1057,7 +1041,7 @@
             margin: 0 auto;
         }
 
-        /* Process Timeline */
+        /* Process Timeline - Mobile First */
         .process-timeline {
             display: grid;
             grid-template-columns: 1fr;
@@ -1105,7 +1089,7 @@
             margin-bottom: var(--spacing-sm);
         }
 
-        /* Pricing Grid */
+        /* Pricing Grid - Mobile First */
         .pricing-grid {
             display: grid;
             grid-template-columns: 1fr;
@@ -1153,7 +1137,6 @@
             border-radius: var(--radius-round);
             font-size: var(--text-xs);
             font-weight: 600;
-            min-height: 24px;
         }
 
         .pricing-body {
@@ -1190,7 +1173,6 @@
             margin-bottom: var(--spacing-xs);
             font-size: var(--text-base);
             color: var(--color-white);
-            min-height: 24px;
         }
 
         .package-features li i {
@@ -1250,7 +1232,7 @@
             color: var(--color-light-gray);
         }
 
-        /* Contact Methods */
+        /* Contact Methods - Mobile First */
         .methods-grid {
             display: grid;
             grid-template-columns: 1fr;
@@ -1295,7 +1277,6 @@
             font-size: var(--text-xs);
             font-weight: 600;
             margin-right: auto;
-            min-height: 24px;
         }
 
         .method-description {
@@ -1315,14 +1296,13 @@
             gap: var(--spacing-sm);
             margin-bottom: var(--spacing-xs);
             color: var(--color-light-gray);
-            min-height: 24px;
         }
 
         .method-features li i {
             color: var(--color-gold);
         }
 
-        /* WhatsApp Direct */
+        /* WhatsApp Direct - Mobile First */
         .whatsapp-countries {
             display: grid;
             grid-template-columns: 1fr;
@@ -1376,7 +1356,6 @@
             gap: var(--spacing-sm);
             margin-bottom: var(--spacing-sm);
             color: var(--color-light-gray);
-            min-height: 24px;
         }
 
         .contact-number i {
@@ -1388,7 +1367,7 @@
             color: var(--color-gold);
         }
 
-        /* Contact Form */
+        /* Contact Form - Mobile First */
         .form-container {
             display: grid;
             grid-template-columns: 1fr;
@@ -1426,12 +1405,6 @@
             font-family: var(--font-body);
             font-size: var(--text-base);
             transition: var(--transition-normal);
-            min-height: 44px;
-        }
-
-        .form-textarea {
-            min-height: 120px;
-            resize: vertical;
         }
 
         .form-input:focus,
@@ -1450,8 +1423,6 @@
 
         .form-checkbox {
             margin-top: 4px;
-            min-width: 18px;
-            min-height: 18px;
         }
 
         .form-check-label {
@@ -1476,13 +1447,7 @@
             margin-top: var(--spacing-lg);
         }
 
-        @media (min-width: 768px) {
-            .form-actions {
-                flex-direction: row;
-            }
-        }
-
-        /* Form Sidebar */
+        /* Form Sidebar - Mobile First */
         .form-sidebar {
             display: grid;
             grid-template-columns: 1fr;
@@ -1568,7 +1533,7 @@
             margin-bottom: 0;
         }
 
-        /* FAQ Section */
+        /* FAQ Section - Mobile First */
         .faq-accordion {
             display: flex;
             flex-direction: column;
@@ -1589,8 +1554,6 @@
             font-size: var(--text-base);
             color: var(--color-white);
             transition: var(--transition-normal);
-            min-height: 44px;
-            width: 100%;
         }
 
         .faq-question:hover {
@@ -1619,7 +1582,7 @@
             line-height: 1.6;
         }
 
-        /* Results Grid */
+        /* Results Grid - Mobile First */
         .results-grid {
             display: grid;
             grid-template-columns: 1fr;
@@ -1653,8 +1616,6 @@
             font-size: var(--text-xl);
             color: var(--color-gold);
             border: 1px solid rgba(212, 175, 55, 0.2);
-            min-width: 50px;
-            min-height: 50px;
         }
 
         .result-title {
@@ -1681,7 +1642,6 @@
             gap: var(--spacing-sm);
             margin-bottom: var(--spacing-sm);
             color: var(--color-white);
-            min-height: 24px;
         }
 
         .result-features li i {
@@ -1689,13 +1649,11 @@
             font-size: var(--text-sm);
         }
 
-        /* Footer - FIXED RTL */
+        /* Footer - Mobile First */
         .main-footer {
             background: var(--color-charcoal);
             padding: var(--spacing-xl) var(--container-padding) var(--spacing-lg);
             border-top: 1px solid rgba(212, 175, 55, 0.1);
-            text-align: right;
-            direction: rtl;
         }
 
         .footer-content {
@@ -1709,12 +1667,6 @@
             text-align: center;
         }
 
-        @media (min-width: 768px) {
-            .footer-brand {
-                text-align: right;
-            }
-        }
-
         .footer-logo {
             width: 60px;
             height: 60px;
@@ -1722,12 +1674,6 @@
             object-fit: cover;
             border: 2px solid var(--color-gold);
             margin: 0 auto var(--spacing-sm);
-        }
-
-        @media (min-width: 768px) {
-            .footer-logo {
-                margin: 0 0 var(--spacing-sm) 0;
-            }
         }
 
         .footer-brand-name {
@@ -1749,52 +1695,33 @@
             color: var(--color-light-gray);
             line-height: 1.6;
             margin-bottom: var(--spacing-lg);
-            text-align: justify;
         }
 
         .footer-links {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: var(--spacing-lg);
-            text-align: right;
-        }
-
-        .links-column {
-            text-align: right;
         }
 
         .links-column h4 {
             font-size: var(--text-lg);
             color: var(--color-white);
             margin-bottom: var(--spacing-md);
-            text-align: right;
-        }
-
-        .footer-nav {
-            text-align: right;
         }
 
         .footer-nav li {
             margin-bottom: var(--spacing-sm);
-            text-align: right;
         }
 
         .footer-nav a {
             color: var(--color-light-gray);
             font-size: var(--text-sm);
             transition: var(--transition-normal);
-            display: inline-block;
-            min-height: 24px;
-            text-align: right;
         }
 
         .footer-nav a:hover {
             color: var(--color-gold);
             padding-right: 5px;
-        }
-
-        .contact-info {
-            text-align: right;
         }
 
         .contact-item {
@@ -1804,10 +1731,6 @@
             margin-bottom: var(--spacing-sm);
             color: var(--color-light-gray);
             font-size: var(--text-sm);
-            min-height: 24px;
-            justify-content: flex-end;
-            text-align: right;
-            flex-direction: row-reverse;
         }
 
         .contact-item i {
@@ -1821,10 +1744,6 @@
             text-align: center;
         }
 
-        .copyright {
-            text-align: center;
-        }
-
         .copyright p {
             font-size: var(--text-sm);
             color: var(--color-light-gray);
@@ -1834,9 +1753,6 @@
         .disclaimer {
             font-size: var(--text-xs);
             color: var(--color-gray);
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto;
         }
 
         .payment-methods {
@@ -1882,8 +1798,6 @@
             transition: var(--transition-normal);
             z-index: 998;
             box-shadow: var(--shadow-md);
-            min-width: 50px;
-            min-height: 50px;
         }
 
         .back-to-top.visible {
@@ -1916,6 +1830,10 @@
                 max-width: 640px;
             }
 
+            .hero {
+                min-height: 50vh; /* بقي نصف الشاشة */
+            }
+
             .story-grid,
             .pricing-grid,
             .results-grid {
@@ -1945,12 +1863,25 @@
                 max-width: 768px;
             }
 
+            .hero {
+                min-height: 50vh; /* بقي نصف الشاشة */
+            }
+
             .hero-content-wrapper {
                 justify-content: flex-end;
             }
 
             .hero-content-card {
                 margin-right: 5%;
+            }
+
+            .hero-actions {
+                flex-direction: row;
+                max-width: none;
+            }
+
+            .btn {
+                width: auto;
             }
 
             .mobile-menu-btn {
@@ -1978,7 +1909,6 @@
                 padding: var(--spacing-xs) var(--spacing-sm);
                 border: none;
                 font-size: var(--text-base);
-                min-height: auto;
             }
 
             .nav-link:hover,
@@ -2003,6 +1933,7 @@
                 width: 100%;
             }
 
+            /* Video Grid - 2 columns on tablet and desktop */
             .videos-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
@@ -2011,12 +1942,20 @@
                 grid-template-columns: 2fr 1fr;
             }
 
+            .form-actions {
+                flex-direction: row;
+            }
+
             .footer-content {
                 grid-template-columns: 1fr 2fr;
             }
 
-            .footer-links {
-                grid-template-columns: repeat(3, 1fr);
+            .footer-brand {
+                text-align: right;
+            }
+
+            .footer-logo {
+                margin: 0 0 var(--spacing-sm) 0;
             }
         }
 
@@ -2025,8 +1964,16 @@
                 max-width: 1024px;
             }
 
+            .hero {
+                min-height: 50vh; /* بقي نصف الشاشة */
+            }
+
             .hero-title .hero-main {
                 font-size: var(--text-5xl);
+            }
+
+            .videos-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
 
             .story-grid,
@@ -2050,6 +1997,10 @@
             .product-hero-section .container {
                 grid-template-columns: 1fr 1fr;
             }
+
+            .footer-links {
+                grid-template-columns: repeat(3, 1fr);
+            }
         }
 
         @media (min-width: 1280px) {
@@ -2059,6 +2010,10 @@
 
             :root {
                 --text-5xl: 4rem;
+            }
+
+            .hero {
+                min-height: 50vh; /* بقي نصف الشاشة على الديسكتوب */
             }
         }
 
@@ -2137,8 +2092,8 @@
                     <li><a href="#story" class="nav-link">قصة المنتج</a></li>
                     <li><a href="#works" class="nav-link">كيف يعمل</a></li>
                     <li><a href="#pricing" class="nav-link">الأسعار</a></li>
-                    <li><a href="#contact-hero" class="nav-link">اتصل بنا</a></li>
-                    <li><a href="#contact-hero" class="btn btn-primary btn-small">اطلب الآن</a></li>
+                    <li><a href="#contact" class="nav-link">اتصل بنا</a></li>
+                    <li><a href="#contact" class="btn btn-primary btn-small">اطلب الآن</a></li>
                 </ul>
             </nav>
         </div>
@@ -2147,7 +2102,7 @@
     <!-- Overlay for mobile menu -->
     <div class="nav-overlay" id="navOverlay"></div>
 
-    <!-- Hero Section -->
+    <!-- Hero Section - نصف الشاشة -->
     <section class="hero" id="home">
         <div class="hero-background">
             <img src="assets/images/hero-bg.jpg" alt="زيت العلقه الأصلي" class="hero-product-image">
@@ -2169,7 +2124,7 @@
                         </p>
 
                         <div class="hero-actions">
-                            <a href="#contact-hero" class="btn btn-primary btn-large">
+                            <a href="#contact" class="btn btn-primary btn-large">
                                 <i class="fab fa-whatsapp"></i>
                                 <span>اطلب الآن عبر واتساب</span>
                             </a>
@@ -2198,11 +2153,11 @@
         </div>
     </section>
 
-    <!-- Video Demo Section -->
+    <!-- Video Demo Section - التصميم الأصلي -->
     <section class="video-demo-section" id="video-demo">
         <div class="container video-demo-container">
             <div class="video-demo-header">
-                <h2 class="video-demo-title">فيديو توضيحي</h2>
+
                 <p class="video-demo-subtitle">فيديو توضيحي يشرح آلية عمل التركيبة الطبيعية ونتائجها المميزة</p>
             </div>
 
@@ -2225,8 +2180,8 @@
                                 <div class="video-placeholder-icon">
                                     <i class="fas fa-play-circle"></i>
                                 </div>
-                                <div class="video-placeholder-text">اضغط للعب الفيديو</div>
-                                <div class="video-placeholder-subtext">فيديو توضيحي عن آلية عمل المنتج</div>
+
+
                             </div>
                         </div>
                     </div>
@@ -2250,8 +2205,7 @@
                                 <div class="video-placeholder-icon">
                                     <i class="fas fa-play-circle"></i>
                                 </div>
-                                <div class="video-placeholder-text">اضغط للعب الفيديو</div>
-                                <div class="video-placeholder-subtext">فيديو يوضح طريقة الاستخدام الصحيحة</div>
+
                             </div>
                         </div>
                     </div>
@@ -2264,13 +2218,15 @@
                     زيت العلاقة ليس مجرد منتج، بل هو استثمار في صحتك وثقتك بنفسك.
                     انضم إلى آلاف الرجال الذين اختاروا الحل الطبيعي الآمن.
                 </p>
-                <a href="#contact-hero" class="btn btn-primary btn-large video-cta-button">
+                <a href="#contact" class="btn btn-primary btn-large video-cta-button">
                     <i class="fab fa-whatsapp"></i>
                     <span>ابدأ رحلتك الآن - تواصل معنا</span>
                 </a>
             </div>
         </div>
     </section>
+
+    <!-- باقي الأقسام تبقى كما هي ... -->
 
     <!-- Product Details Section -->
     <section class="section section-light" id="product">
@@ -2350,7 +2306,7 @@
                 </div>
 
                 <div class="product-cta">
-                    <a href="#contact-hero" class="btn btn-primary btn-large">
+                    <a href="#contact" class="btn btn-primary btn-large">
                         <i class="fab fa-whatsapp"></i>
                         <span>اطلب عبر واتساب</span>
                     </a>
@@ -2588,7 +2544,7 @@
                     </div>
 
                     <div class="pricing-footer">
-                        <a href="#contact-hero" class="btn btn-primary btn-block">
+                        <a href="#contact" class="btn btn-primary btn-block">
                             <i class="fab fa-whatsapp"></i>
                             اطلب الآن
                         </a>
@@ -2621,7 +2577,7 @@
                     </div>
 
                     <div class="pricing-footer">
-                        <a href="#contact-hero" class="btn btn-primary btn-block">
+                        <a href="#contact" class="btn btn-primary btn-block">
                             <i class="fab fa-whatsapp"></i>
                             اطلب الآن
                         </a>
@@ -2654,7 +2610,7 @@
                     </div>
 
                     <div class="pricing-footer">
-                        <a href="#contact-hero" class="btn btn-primary btn-block">
+                        <a href="#contact" class="btn btn-primary btn-block">
                             <i class="fab fa-whatsapp"></i>
                             اطلب الآن
                         </a>
@@ -3136,7 +3092,7 @@
                     <div class="links-column">
                         <h4 class="links-title">الدعم</h4>
                         <ul class="footer-nav">
-                            <li><a href="#contact-hero">التواصل</a></li>
+                            <li><a href="#contact">التواصل</a></li>
                             <li><a href="#faq">الأسئلة الشائعة</a></li>
                             <li><a href="#">سياسة الخصوصية</a></li>
                             <li><a href="#">شروط الاستخدام</a></li>
@@ -3223,14 +3179,14 @@
                 }
             }, 1500);
 
-            // Mobile Menu - FIXED
+            // Mobile Menu
             const mobileMenuBtn = document.getElementById('mobileMenuBtn');
             const mainNav = document.getElementById('mainNav');
             const navOverlay = document.getElementById('navOverlay');
 
             function toggleMenu() {
                 const isOpen = mainNav.classList.contains('show');
-                
+
                 if (isOpen) {
                     mainNav.classList.remove('show');
                     navOverlay.classList.remove('show');
@@ -3251,7 +3207,7 @@
                 navOverlay.addEventListener('click', toggleMenu);
 
                 // Close menu when clicking a link
-                const navLinks = document.querySelectorAll('.nav-link, .btn-small');
+                const navLinks = document.querySelectorAll('.nav-link');
                 navLinks.forEach(link => {
                     link.addEventListener('click', function() {
                         if (window.innerWidth <= 768) {
@@ -3268,7 +3224,7 @@
                 });
             }
 
-            // Video Players
+            // Video Players - التصميم الأصلي
             const demoVideo = document.getElementById('demoVideo');
             const videoPlaceholder = document.getElementById('videoPlaceholder');
             const usageVideo = document.getElementById('usageVideo');
@@ -3495,21 +3451,11 @@
             function handleResize() {
                 // If screen is larger than mobile, ensure menu is visible
                 if (window.innerWidth > 768) {
+                    mainNav.classList.add('show');
                     mainNav.style.display = 'flex';
-                    mainNav.style.position = 'static';
-                    mainNav.style.right = '0';
-                    mainNav.style.width = 'auto';
-                    mainNav.style.height = 'auto';
-                    mainNav.style.padding = '0';
-                    mainNav.style.background = 'transparent';
-                    mainNav.classList.remove('show');
-                    navOverlay.classList.remove('show');
-                    mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
-                    document.body.style.overflow = 'auto';
                 } else {
-                    mainNav.style.display = 'none';
-                    if (mainNav.classList.contains('show')) {
-                        mainNav.style.display = 'block';
+                    if (!mainNav.classList.contains('show')) {
+                        mainNav.style.display = 'none';
                     }
                 }
             }
@@ -3517,6 +3463,73 @@
             window.addEventListener('resize', handleResize);
             handleResize(); // Initial call
         });
+
+        // Add modal styles
+        const modalStyles = document.createElement('style');
+        modalStyles.textContent = `
+            .modal {
+                display: none;
+                position: fixed;
+                top: 0;
+                right: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.8);
+                z-index: 9999;
+                align-items: center;
+                justify-content: center;
+                padding: var(--container-padding);
+            }
+            
+            .modal-content {
+                background: var(--color-charcoal);
+                border-radius: var(--radius-lg);
+                padding: var(--spacing-lg);
+                max-width: 500px;
+                width: 100%;
+                border: 1px solid var(--color-gold);
+            }
+            
+            .modal-header {
+                display: flex;
+                align-items: center;
+                gap: var(--spacing-sm);
+                margin-bottom: var(--spacing-md);
+            }
+            
+            .modal-header i {
+                color: #4CAF50;
+                font-size: var(--text-2xl);
+            }
+            
+            .modal-title {
+                color: var(--color-white);
+                font-size: var(--text-xl);
+                margin: 0;
+                flex: 1;
+            }
+            
+            .modal-close {
+                background: none;
+                border: none;
+                color: var(--color-light-gray);
+                font-size: var(--text-xl);
+                cursor: pointer;
+            }
+            
+            .modal-body {
+                margin-bottom: var(--spacing-lg);
+            }
+            
+            .modal-body p {
+                color: var(--color-light-gray);
+            }
+            
+            .modal-footer {
+                text-align: left;
+            }
+        `;
+        document.head.appendChild(modalStyles);
     </script>
 </body>
-</html>
+</html> 
