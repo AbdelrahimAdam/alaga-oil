@@ -240,7 +240,7 @@
             letter-spacing: 1px;
         }
 
-        /* Mobile Menu Button - FIXED FOR MOBILE */
+        /* Mobile Menu Button - FIXED */
         .mobile-menu-btn {
             display: flex;
             align-items: center;
@@ -252,20 +252,19 @@
             cursor: pointer;
             padding: var(--spacing-xs);
             transition: var(--transition-fast);
-            min-width: 44px;
-            min-height: 44px;
-            z-index: 1001;
             width: 44px;
             height: 44px;
+            z-index: 1001;
+            border-radius: var(--radius-md);
         }
 
         .mobile-menu-btn:hover {
             color: var(--color-gold);
+            background: rgba(212, 175, 55, 0.1);
         }
 
         /* Navigation - Mobile First - FIXED */
         .main-nav {
-            display: none;
             position: fixed;
             top: 0;
             right: -100%;
@@ -276,13 +275,12 @@
             -webkit-backdrop-filter: blur(20px);
             padding: 80px var(--spacing-lg) var(--spacing-xl);
             transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            z-index: 1000;
+            z-index: 999;
             box-shadow: -5px 0 30px rgba(0, 0, 0, 0.5);
             overflow-y: auto;
         }
 
         .main-nav.show {
-            display: flex;
             right: 0;
         }
 
@@ -322,7 +320,7 @@
             width: 100%;
             height: 100%;
             background: rgba(0, 0, 0, 0.7);
-            z-index: 999;
+            z-index: 998;
             opacity: 0;
             visibility: hidden;
             transition: all 0.3s ease;
@@ -334,13 +332,13 @@
             visibility: visible;
         }
 
-        /* Button Styles - Mobile First - FIXED FOR MOBILE */
+        /* Button Styles - Mobile First - FIXED SIZE */
         .btn {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: var(--spacing-sm);
-            padding: var(--spacing-sm) var(--spacing-lg);
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
             border-radius: var(--radius-round);
             font-size: var(--text-base);
             font-weight: 500;
@@ -351,13 +349,13 @@
             text-align: center;
             position: relative;
             overflow: hidden;
-            width: 100%;
-            min-height: 44px;
             text-decoration: none;
-            margin: var(--spacing-xs) 0;
+            min-height: 44px;
+            width: 100%;
+            max-width: 100%;
         }
 
-        @media (min-width: 640px) {
+        @media (min-width: 768px) {
             .btn {
                 width: auto;
                 min-width: 140px;
@@ -413,13 +411,13 @@
         }
 
         .btn-large {
-            padding: var(--spacing-md) var(--spacing-xl);
+            padding: 1rem 2rem;
             font-size: var(--text-lg);
             min-height: 52px;
         }
 
         .btn-small {
-            padding: var(--spacing-xs) var(--spacing-md);
+            padding: 0.5rem 1rem;
             font-size: var(--text-sm);
             min-height: 36px;
         }
@@ -428,10 +426,10 @@
             width: 100%;
         }
 
-        /* Hero Section - Mobile First (نصف الشاشة) */
+        /* Hero Section */
         .hero {
             position: relative;
-            min-height: 50vh; /* نصف الشاشة على الجوال */
+            min-height: 50vh;
             display: flex;
             align-items: center;
             padding-top: 70px;
@@ -461,7 +459,6 @@
             opacity: 0.3;
         }
 
-        /* تحسين محتوى الهيرو - تماماً كما في الملف الأصلي */
         .hero-content-wrapper {
             position: relative;
             z-index: 2;
@@ -538,11 +535,12 @@
         @media (min-width: 768px) {
             .hero-actions {
                 flex-direction: row;
+                flex-wrap: wrap;
             }
             
             .hero-actions .btn {
-                width: auto;
                 flex: 1;
+                min-width: 200px;
             }
         }
 
@@ -616,7 +614,7 @@
             box-shadow: var(--shadow-gold);
         }
 
-        /* Video Section - التصميم الأصلي تماماً */
+        /* Video Section */
         .video-demo-section {
             padding: var(--spacing-xxl) var(--container-padding);
             background: var(--color-black);
@@ -645,10 +643,9 @@
             color: var(--color-light-gray);
         }
 
-        /* شبكة الفيديوهات - التصميم الأصلي */
         .videos-grid {
             display: grid;
-            grid-template-columns: 1fr; /* عمود واحد على الجوال */
+            grid-template-columns: 1fr;
             gap: var(--spacing-xl);
             margin: var(--spacing-xl) 0;
         }
@@ -686,7 +683,7 @@
         .video-player-wrapper {
             position: relative;
             width: 100%;
-            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            padding-bottom: 56.25%;
             height: 0;
             overflow: hidden;
             background: transparent;
@@ -720,24 +717,11 @@
             background: rgba(0, 0, 0, 0.3);
         }
 
-        /* تحديث مهم: استخدام صورة مختلفة للفيديو الثاني */
-        .video-placeholder::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-        }
-
-        /* الصورة الأولى - الفيديو التوضيحي */
         #videoPlaceholder::before {
             background: url('assets/images/video-preview.jpg') center center/cover no-repeat;
             opacity: 0.6;
         }
 
-        /* الصورة الثانية - فيديو الاستخدام */
         #usageVideoPlaceholder::before {
             background: url('assets/images/usage-preview.jpg') center center/cover no-repeat;
             opacity: 0.6;
@@ -754,7 +738,6 @@
             pointer-events: none;
         }
 
-        /* تحسين زر التشغيل في منتصف الفيديو */
         .video-placeholder-icon {
             font-size: clamp(2.5rem, 5vw, 3rem);
             color: var(--color-gold);
@@ -883,7 +866,7 @@
             margin-top: var(--spacing-lg);
         }
 
-        /* Story Grid - Mobile First */
+        /* Story Grid */
         .story-grid {
             display: grid;
             grid-template-columns: 1fr;
@@ -1074,7 +1057,7 @@
             margin: 0 auto;
         }
 
-        /* Process Timeline - Mobile First */
+        /* Process Timeline */
         .process-timeline {
             display: grid;
             grid-template-columns: 1fr;
@@ -1122,7 +1105,7 @@
             margin-bottom: var(--spacing-sm);
         }
 
-        /* Pricing Grid - Mobile First */
+        /* Pricing Grid */
         .pricing-grid {
             display: grid;
             grid-template-columns: 1fr;
@@ -1267,7 +1250,7 @@
             color: var(--color-light-gray);
         }
 
-        /* Contact Methods - Mobile First */
+        /* Contact Methods */
         .methods-grid {
             display: grid;
             grid-template-columns: 1fr;
@@ -1339,7 +1322,7 @@
             color: var(--color-gold);
         }
 
-        /* WhatsApp Direct - Mobile First */
+        /* WhatsApp Direct */
         .whatsapp-countries {
             display: grid;
             grid-template-columns: 1fr;
@@ -1405,7 +1388,7 @@
             color: var(--color-gold);
         }
 
-        /* Contact Form - Mobile First */
+        /* Contact Form */
         .form-container {
             display: grid;
             grid-template-columns: 1fr;
@@ -1499,7 +1482,7 @@
             }
         }
 
-        /* Form Sidebar - Mobile First */
+        /* Form Sidebar */
         .form-sidebar {
             display: grid;
             grid-template-columns: 1fr;
@@ -1585,7 +1568,7 @@
             margin-bottom: 0;
         }
 
-        /* FAQ Section - Mobile First */
+        /* FAQ Section */
         .faq-accordion {
             display: flex;
             flex-direction: column;
@@ -1636,7 +1619,7 @@
             line-height: 1.6;
         }
 
-        /* Results Grid - Mobile First */
+        /* Results Grid */
         .results-grid {
             display: grid;
             grid-template-columns: 1fr;
@@ -1706,11 +1689,13 @@
             font-size: var(--text-sm);
         }
 
-        /* Footer - Mobile First */
+        /* Footer - FIXED RTL */
         .main-footer {
             background: var(--color-charcoal);
             padding: var(--spacing-xl) var(--container-padding) var(--spacing-lg);
             border-top: 1px solid rgba(212, 175, 55, 0.1);
+            text-align: right;
+            direction: rtl;
         }
 
         .footer-content {
@@ -1724,6 +1709,12 @@
             text-align: center;
         }
 
+        @media (min-width: 768px) {
+            .footer-brand {
+                text-align: right;
+            }
+        }
+
         .footer-logo {
             width: 60px;
             height: 60px;
@@ -1731,6 +1722,12 @@
             object-fit: cover;
             border: 2px solid var(--color-gold);
             margin: 0 auto var(--spacing-sm);
+        }
+
+        @media (min-width: 768px) {
+            .footer-logo {
+                margin: 0 0 var(--spacing-sm) 0;
+            }
         }
 
         .footer-brand-name {
@@ -1752,22 +1749,34 @@
             color: var(--color-light-gray);
             line-height: 1.6;
             margin-bottom: var(--spacing-lg);
+            text-align: justify;
         }
 
         .footer-links {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: var(--spacing-lg);
+            text-align: right;
+        }
+
+        .links-column {
+            text-align: right;
         }
 
         .links-column h4 {
             font-size: var(--text-lg);
             color: var(--color-white);
             margin-bottom: var(--spacing-md);
+            text-align: right;
+        }
+
+        .footer-nav {
+            text-align: right;
         }
 
         .footer-nav li {
             margin-bottom: var(--spacing-sm);
+            text-align: right;
         }
 
         .footer-nav a {
@@ -1776,11 +1785,16 @@
             transition: var(--transition-normal);
             display: inline-block;
             min-height: 24px;
+            text-align: right;
         }
 
         .footer-nav a:hover {
             color: var(--color-gold);
             padding-right: 5px;
+        }
+
+        .contact-info {
+            text-align: right;
         }
 
         .contact-item {
@@ -1791,6 +1805,9 @@
             color: var(--color-light-gray);
             font-size: var(--text-sm);
             min-height: 24px;
+            justify-content: flex-end;
+            text-align: right;
+            flex-direction: row-reverse;
         }
 
         .contact-item i {
@@ -1804,6 +1821,10 @@
             text-align: center;
         }
 
+        .copyright {
+            text-align: center;
+        }
+
         .copyright p {
             font-size: var(--text-sm);
             color: var(--color-light-gray);
@@ -1813,6 +1834,9 @@
         .disclaimer {
             font-size: var(--text-xs);
             color: var(--color-gray);
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
         }
 
         .payment-methods {
@@ -1892,10 +1916,6 @@
                 max-width: 640px;
             }
 
-            .hero {
-                min-height: 50vh; /* بقي نصف الشاشة */
-            }
-
             .story-grid,
             .pricing-grid,
             .results-grid {
@@ -1925,25 +1945,12 @@
                 max-width: 768px;
             }
 
-            .hero {
-                min-height: 50vh; /* بقي نصف الشاشة */
-            }
-
             .hero-content-wrapper {
                 justify-content: flex-end;
             }
 
             .hero-content-card {
                 margin-right: 5%;
-            }
-
-            .hero-actions {
-                flex-direction: row;
-                max-width: none;
-            }
-
-            .btn {
-                width: auto;
             }
 
             .mobile-menu-btn {
@@ -1996,7 +2003,6 @@
                 width: 100%;
             }
 
-            /* Video Grid - 2 columns on tablet and desktop */
             .videos-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
@@ -2005,20 +2011,12 @@
                 grid-template-columns: 2fr 1fr;
             }
 
-            .form-actions {
-                flex-direction: row;
-            }
-
             .footer-content {
                 grid-template-columns: 1fr 2fr;
             }
 
-            .footer-brand {
-                text-align: right;
-            }
-
-            .footer-logo {
-                margin: 0 0 var(--spacing-sm) 0;
+            .footer-links {
+                grid-template-columns: repeat(3, 1fr);
             }
         }
 
@@ -2027,16 +2025,8 @@
                 max-width: 1024px;
             }
 
-            .hero {
-                min-height: 50vh; /* بقي نصف الشاشة */
-            }
-
             .hero-title .hero-main {
                 font-size: var(--text-5xl);
-            }
-
-            .videos-grid {
-                grid-template-columns: repeat(2, 1fr);
             }
 
             .story-grid,
@@ -2060,10 +2050,6 @@
             .product-hero-section .container {
                 grid-template-columns: 1fr 1fr;
             }
-
-            .footer-links {
-                grid-template-columns: repeat(3, 1fr);
-            }
         }
 
         @media (min-width: 1280px) {
@@ -2073,10 +2059,6 @@
 
             :root {
                 --text-5xl: 4rem;
-            }
-
-            .hero {
-                min-height: 50vh; /* بقي نصف الشاشة على الديسكتوب */
             }
         }
 
@@ -2165,7 +2147,7 @@
     <!-- Overlay for mobile menu -->
     <div class="nav-overlay" id="navOverlay"></div>
 
-    <!-- Hero Section - نصف الشاشة -->
+    <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="hero-background">
             <img src="assets/images/hero-bg.jpg" alt="زيت العلقه الأصلي" class="hero-product-image">
@@ -2187,7 +2169,7 @@
                         </p>
 
                         <div class="hero-actions">
-                            <a href="#contact-hero" class="btn btn-primary btn-large"> <!-- FIXED: Redirects to contact section -->
+                            <a href="#contact-hero" class="btn btn-primary btn-large">
                                 <i class="fab fa-whatsapp"></i>
                                 <span>اطلب الآن عبر واتساب</span>
                             </a>
@@ -2216,7 +2198,7 @@
         </div>
     </section>
 
-    <!-- Video Demo Section - التصميم الأصلي -->
+    <!-- Video Demo Section -->
     <section class="video-demo-section" id="video-demo">
         <div class="container video-demo-container">
             <div class="video-demo-header">
@@ -3248,7 +3230,7 @@
 
             function toggleMenu() {
                 const isOpen = mainNav.classList.contains('show');
-
+                
                 if (isOpen) {
                     mainNav.classList.remove('show');
                     navOverlay.classList.remove('show');
@@ -3286,7 +3268,7 @@
                 });
             }
 
-            // Video Players - التصميم الأصلي
+            // Video Players
             const demoVideo = document.getElementById('demoVideo');
             const videoPlaceholder = document.getElementById('videoPlaceholder');
             const usageVideo = document.getElementById('usageVideo');
@@ -3514,13 +3496,20 @@
                 // If screen is larger than mobile, ensure menu is visible
                 if (window.innerWidth > 768) {
                     mainNav.style.display = 'flex';
+                    mainNav.style.position = 'static';
+                    mainNav.style.right = '0';
+                    mainNav.style.width = 'auto';
+                    mainNav.style.height = 'auto';
+                    mainNav.style.padding = '0';
+                    mainNav.style.background = 'transparent';
                     mainNav.classList.remove('show');
                     navOverlay.classList.remove('show');
                     mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
                     document.body.style.overflow = 'auto';
                 } else {
-                    if (!mainNav.classList.contains('show')) {
-                        mainNav.style.display = 'none';
+                    mainNav.style.display = 'none';
+                    if (mainNav.classList.contains('show')) {
+                        mainNav.style.display = 'block';
                     }
                 }
             }
@@ -3528,73 +3517,6 @@
             window.addEventListener('resize', handleResize);
             handleResize(); // Initial call
         });
-
-        // Add modal styles
-        const modalStyles = document.createElement('style');
-        modalStyles.textContent = `
-            .modal {
-                display: none;
-                position: fixed;
-                top: 0;
-                right: 0;
-                width: 100%;
-                height: 100%;
-                background: rgba(0, 0, 0, 0.8);
-                z-index: 9999;
-                align-items: center;
-                justify-content: center;
-                padding: var(--container-padding);
-            }
-            
-            .modal-content {
-                background: var(--color-charcoal);
-                border-radius: var(--radius-lg);
-                padding: var(--spacing-lg);
-                max-width: 500px;
-                width: 100%;
-                border: 1px solid var(--color-gold);
-            }
-            
-            .modal-header {
-                display: flex;
-                align-items: center;
-                gap: var(--spacing-sm);
-                margin-bottom: var(--spacing-md);
-            }
-            
-            .modal-header i {
-                color: #4CAF50;
-                font-size: var(--text-2xl);
-            }
-            
-            .modal-title {
-                color: var(--color-white);
-                font-size: var(--text-xl);
-                margin: 0;
-                flex: 1;
-            }
-            
-            .modal-close {
-                background: none;
-                border: none;
-                color: var(--color-light-gray);
-                font-size: var(--text-xl);
-                cursor: pointer;
-            }
-            
-            .modal-body {
-                margin-bottom: var(--spacing-lg);
-            }
-            
-            .modal-body p {
-                color: var(--color-light-gray);
-            }
-            
-            .modal-footer {
-                text-align: left;
-            }
-        `;
-        document.head.appendChild(modalStyles);
     </script>
 </body>
 </html>
