@@ -2559,39 +2559,36 @@
                         <p><strong>*نتائج دائمه وفعاله وامنه ومضمونه</strong></p>
                     </div>
 
-                    <!-- Moving Prices Grid -->
-                    <div class="prices-slider-container">
-                        <div class="prices-slider-track">
-                            <!-- 3 بطاقات فقط - تحل المشكلة -->
-                            <div class="price-card">
-                                <div class="price-country">
-                                    <span class="country-flag-icon">🇸🇩</span>
-                                    <span class="country-name">السودان</span>
-                                </div>
-                                <div class="price-amount">155,000</div>
-                                <span class="price-currency">جنيه سوداني</span>
-                                <div class="price-note">التوصيل مجاناً</div>
+                    <!-- Static Prices Grid -->
+                    <div class="static-prices-grid">
+                        <div class="price-card">
+                            <div class="price-country">
+                                <span class="country-flag-icon">🇸🇩</span>
+                                <span class="country-name">السودان</span>
                             </div>
+                            <div class="price-amount">155,000</div>
+                            <span class="price-currency">جنيه سوداني</span>
+                            <div class="price-note">التوصيل مجاناً</div>
+                        </div>
 
-                            <div class="price-card">
-                                <div class="price-country">
-                                    <span class="country-flag-icon">🇸🇦</span>
-                                    <span class="country-name">السعودية</span>
-                                </div>
-                                <div class="price-amount">300</div>
-                                <span class="price-currency">ريال سعودي</span>
-                                <div class="price-note">شحن سريع 2-3 أيام</div>
+                        <div class="price-card">
+                            <div class="price-country">
+                                <span class="country-flag-icon">🇸🇦</span>
+                                <span class="country-name">السعودية</span>
                             </div>
+                            <div class="price-amount">300</div>
+                            <span class="price-currency">ريال سعودي</span>
+                            <div class="price-note">شحن سريع 2-3 أيام</div>
+                        </div>
 
-                            <div class="price-card">
-                                <div class="price-country">
-                                    <span class="country-flag-icon">🇪🇬</span>
-                                    <span class="country-name">مصر</span>
-                                </div>
-                                <div class="price-amount">1,500</div>
-                                <span class="price-currency">جنيه مصري</span>
-                                <div class="price-note">توصيل خلال 48 ساعة</div>
+                        <div class="price-card">
+                            <div class="price-country">
+                                <span class="country-flag-icon">🇪🇬</span>
+                                <span class="country-name">مصر</span>
                             </div>
+                            <div class="price-amount">1,500</div>
+                            <span class="price-currency">جنيه مصري</span>
+                            <div class="price-note">توصيل خلال 48 ساعة</div>
                         </div>
                     </div>
 
@@ -2615,52 +2612,36 @@
 </section>
 
 <style>
-    /* Moving Prices Slider - حركة محسنة */
-    .prices-slider-container {
-        width: 100%;
-        overflow: hidden;
+    /* Static Prices Grid - ثابت بدون حركة */
+    .static-prices-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
         margin-top: var(--spacing-md);
         margin-bottom: var(--spacing-sm);
         background: rgba(212, 175, 55, 0.05);
         border-radius: 8px;
         border: 1px solid rgba(212, 175, 55, 0.1);
-        position: relative;
-        padding: 10px 0;
-    }
-
-    .prices-slider-track {
-        display: flex;
-        width: max-content;
-        animation: smoothSlide 25s linear infinite;
-        will-change: transform;
-    }
-
-    @keyframes smoothSlide {
-        0% {
-            transform: translateX(0);
-        }
-        100% {
-            transform: translateX(-100%);
-        }
+        padding: 16px;
+        box-sizing: border-box;
+        width: 100%;
     }
 
     .price-card {
         background: rgba(26, 26, 26, 0.8);
-        border-radius: 6px;
-        padding: 8px 6px;
+        border-radius: 8px;
+        padding: 12px 8px;
         border: 1px solid rgba(212, 175, 55, 0.2);
         text-align: center;
         backdrop-filter: blur(10px);
-        min-height: 90px;
-        width: 140px;
+        min-height: 100px;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         box-sizing: border-box;
-        margin: 0 8px;
-        flex-shrink: 0;
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        width: 100%;
     }
 
     .price-card:hover {
@@ -2674,39 +2655,39 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        gap: 5px;
-        margin-bottom: 3px;
+        gap: 6px;
+        margin-bottom: 4px;
         width: 100%;
     }
 
     .country-flag-icon {
-        font-size: 14px;
+        font-size: 16px;
         flex-shrink: 0;
     }
 
     .country-name {
-        font-size: 11px;
+        font-size: 12px;
         color: var(--color-white);
-        font-weight: 500;
+        font-weight: 600;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
-        max-width: 80px;
+        max-width: 100px;
     }
 
     .price-amount {
-        font-size: 16px;
+        font-size: 18px;
         font-weight: 700;
         color: var(--color-gold);
-        margin: 3px 0;
+        margin: 4px 0;
         line-height: 1.2;
         overflow: hidden;
         text-overflow: ellipsis;
-        max-width: 95%;
+        max-width: 100%;
     }
 
     .price-currency {
-        font-size: 11px;
+        font-size: 12px;
         color: var(--color-light-gray);
         display: block;
         margin-bottom: 2px;
@@ -2714,16 +2695,16 @@
     }
 
     .price-note {
-        font-size: 10px;
+        font-size: 11px;
         color: var(--color-lighter-gray);
-        margin-top: 2px;
+        margin-top: 3px;
         line-height: 1.2;
         text-align: center;
-        max-width: 95%;
+        max-width: 100%;
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
-        padding: 0 3px;
+        padding: 0 4px;
     }
 
     /* تعديلات للبطاقة الرئيسية */
@@ -2814,33 +2795,33 @@
             padding: 12px;
         }
         
-        .prices-slider-container {
+        .static-prices-grid {
             margin-top: 20px;
             margin-bottom: 15px;
+            gap: 16px;
+            padding: 20px;
         }
         
         .price-card {
-            width: 160px;
-            min-height: 100px;
-            padding: 10px 8px;
-            margin: 0 10px;
+            min-height: 110px;
+            padding: 16px 12px;
         }
         
         .price-amount {
-            font-size: 18px;
+            font-size: 20px;
         }
         
         .country-name {
-            font-size: 12px;
-            max-width: 90px;
+            font-size: 13px;
+            max-width: 120px;
         }
         
         .price-currency {
-            font-size: 12px;
+            font-size: 13px;
         }
         
         .price-note {
-            font-size: 11px;
+            font-size: 12px;
         }
     }
 
@@ -2856,52 +2837,56 @@
             padding: 16px;
         }
         
-        .prices-slider-container {
+        .static-prices-grid {
             max-width: 700px;
             margin-left: auto;
             margin-right: auto;
+            gap: 20px;
+            padding: 24px;
         }
         
         .price-card {
-            width: 180px;
-            min-height: 110px;
-            padding: 12px 10px;
-            margin: 0 12px;
+            min-height: 120px;
+            padding: 18px 14px;
         }
         
         .price-amount {
-            font-size: 20px;
+            font-size: 22px;
         }
         
         .country-name {
-            font-size: 13px;
-            max-width: 100px;
+            font-size: 14px;
+            max-width: 140px;
         }
         
         .country-flag-icon {
-            font-size: 16px;
+            font-size: 18px;
         }
         
         .price-currency {
-            font-size: 13px;
+            font-size: 14px;
         }
         
         .price-note {
-            font-size: 12px;
+            font-size: 13px;
         }
     }
 
     /* تعديلات للموبايل والصغير */
     @media (max-width: 767px) {
+        .static-prices-grid {
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            padding: 12px;
+        }
+        
         .price-card {
-            width: 120px;
-            min-height: 85px;
-            padding: 6px 4px;
-            margin: 0 6px;
+            min-height: 90px;
+            padding: 8px 6px;
         }
         
         .price-amount {
-            font-size: 14px;
+            font-size: 15px;
         }
         
         .country-name {
@@ -2910,7 +2895,7 @@
         }
         
         .country-flag-icon {
-            font-size: 12px;
+            font-size: 13px;
         }
         
         .price-currency {
@@ -2922,209 +2907,135 @@
         }
     }
 
-    /* Pause animation on hover */
-    .prices-slider-container:hover .prices-slider-track {
-        animation-play-state: paused;
-    }
-
-    /* Reduced motion preference */
-    @media (prefers-reduced-motion: reduce) {
-        .prices-slider-track {
-            animation: none;
-            transform: none;
-            justify-content: center;
-            width: 100%;
+    /* تحسينات للأجهزة الصغيرة جداً */
+    @media (max-width: 400px) {
+        .static-prices-grid {
+            grid-template-columns: repeat(3, 1fr);
+            gap: 6px;
+            padding: 10px;
         }
         
         .price-card {
-            margin: 0 8px;
+            min-height: 85px;
+            padding: 6px 4px;
+        }
+        
+        .price-amount {
+            font-size: 14px;
+        }
+        
+        .country-name {
+            font-size: 9px;
+            max-width: 60px;
+        }
+        
+        .country-flag-icon {
+            font-size: 12px;
+        }
+        
+        .price-currency {
+            font-size: 9px;
+        }
+        
+        .price-note {
+            font-size: 8px;
+        }
+    }
+
+    /* تحسينات إضافية */
+    .price-card:nth-child(1) {
+        border-left: 3px solid rgba(40, 167, 69, 0.5);
+    }
+    
+    .price-card:nth-child(2) {
+        border-left: 3px solid rgba(212, 175, 55, 0.5);
+    }
+    
+    .price-card:nth-child(3) {
+        border-left: 3px solid rgba(23, 162, 184, 0.5);
+    }
+
+    /* تأثيرات دخول بطيئة */
+    .price-card {
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    }
+    
+    .price-card:nth-child(1) {
+        animation-delay: 0.1s;
+    }
+    
+    .price-card:nth-child(2) {
+        animation-delay: 0.2s;
+    }
+    
+    .price-card:nth-child(3) {
+        animation-delay: 0.3s;
+    }
+    
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
         }
     }
 </style>
 
 <script>
-// ثِقَال - Price Cards Animation JavaScript
+// إزالة كل كود الأنيميشن السابق وجعله ثابتاً
 document.addEventListener('DOMContentLoaded', function() {
-    initPriceCardsAnimation();
-});
-
-function initPriceCardsAnimation() {
-    const pricesSliderContainer = document.querySelector('.prices-slider-container');
-    const pricesSliderTrack = document.querySelector('.prices-slider-track');
-    const priceCards = document.querySelectorAll('.price-card');
-    
-    if (!pricesSliderContainer || !pricesSliderTrack || priceCards.length === 0) {
-        console.warn('عناصر بطاقات الأسعار غير موجودة');
-        return;
-    }
-    
-    // المشكلة: كانت البطاقات تكرار كثيرة جداً مما يسبب اختفاء بعضها
-    // الحل: استخدام 3 بطاقات فقط مع تكرار JavaScript ديناميكي
-    
-    // إذا كان لدينا 3 بطاقات فقط، نكررها لإنشاء loop سلس
-    if (priceCards.length === 3) {
-        const originalCards = Array.from(priceCards);
+    // إزالة أي أنيميشن موجود على بطاقات الأسعار
+    const staticPricesGrid = document.querySelector('.static-prices-grid');
+    if (staticPricesGrid) {
+        staticPricesGrid.classList.add('loaded');
         
-        // إزالة البطاقات الحالية
-        pricesSliderTrack.innerHTML = '';
-        
-        // إضافة البطاقات 3 مرات للحصول على حركة سلسة
-        for (let i = 0; i < 3; i++) {
-            originalCards.forEach(card => {
-                const clone = card.cloneNode(true);
-                pricesSliderTrack.appendChild(clone);
+        // إضافة تأثيرات hover فقط
+        const priceCards = document.querySelectorAll('.price-card');
+        priceCards.forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-5px) scale(1.02)';
+                this.style.boxShadow = '0 10px 25px rgba(212, 175, 55, 0.3)';
+                this.style.borderColor = 'var(--color-gold)';
             });
-        }
-    }
-    
-    const updatedPriceCards = document.querySelectorAll('.price-card');
-    const totalCards = updatedPriceCards.length;
-    
-    console.log(`تم تحميل ${totalCards} بطاقة أسعار`);
-    
-    // حساب عرض الـ track
-    function calculateTrackWidth() {
-        const cardWidth = window.innerWidth <= 767 ? 120 : 
-                         window.innerWidth <= 1023 ? 160 : 180;
-        const cardMargin = window.innerWidth <= 767 ? 12 : 
-                          window.innerWidth <= 1023 ? 20 : 24;
-        
-        const totalWidth = totalCards * (cardWidth + cardMargin);
-        pricesSliderTrack.style.width = totalWidth + 'px';
-        return totalWidth;
-    }
-    
-    // تحديث الأنيميشن
-    function updateAnimation() {
-        const trackWidth = calculateTrackWidth();
-        const animationDuration = 20; // ثواني لكل دورة كاملة
-        const translateDistance = -(trackWidth / 3); // تتحرك ثلث العرض
-        
-        // إنشاء الأنيميشن ديناميكياً
-        const animationStyle = document.createElement('style');
-        animationStyle.id = 'price-cards-animation-style';
-        animationStyle.textContent = `
-            @keyframes smoothSlide {
-                0% {
-                    transform: translateX(0);
-                }
-                100% {
-                    transform: translateX(${translateDistance}px);
-                }
-            }
             
-            .prices-slider-track {
-                animation: smoothSlide ${animationDuration}s linear infinite;
-                animation-play-state: running;
-            }
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+                this.style.boxShadow = 'none';
+                this.style.borderColor = 'rgba(212, 175, 55, 0.2)';
+            });
             
-            .prices-slider-container:hover .prices-slider-track {
-                animation-play-state: paused;
-            }
+            // تأثيرات للموبايل
+            card.addEventListener('touchstart', function() {
+                this.style.transform = 'translateY(-3px) scale(1.01)';
+                this.style.boxShadow = '0 5px 15px rgba(212, 175, 55, 0.2)';
+                this.style.borderColor = 'var(--color-gold)';
+            });
             
-            .price-card {
-                will-change: transform, box-shadow, border-color;
-            }
-            
-            .price-card:hover {
-                transform: translateY(-5px) scale(1.02);
-                box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3);
-                border-color: var(--color-gold);
-                z-index: 10;
-            }
-        `;
-        
-        // إزالة الأنماط القديمة إذا وجدت
-        const oldStyle = document.getElementById('price-cards-animation-style');
-        if (oldStyle) oldStyle.remove();
-        
-        document.head.appendChild(animationStyle);
-    }
-    
-    // التهيئة الأولية
-    updateAnimation();
-    
-    // تحديث عند تغيير حجم النافذة
-    let resizeTimeout;
-    window.addEventListener('resize', function() {
-        clearTimeout(resizeTimeout);
-        resizeTimeout = setTimeout(updateAnimation, 250);
-    });
-    
-    // التحكم باللمس للموبايل
-    let touchStartX = 0;
-    let isDragging = false;
-    
-    pricesSliderContainer.addEventListener('touchstart', (e) => {
-        touchStartX = e.touches[0].clientX;
-        isDragging = true;
-        pricesSliderTrack.style.animationPlayState = 'paused';
-    });
-    
-    pricesSliderContainer.addEventListener('touchmove', (e) => {
-        if (!isDragging) return;
-        
-        const touchX = e.touches[0].clientX;
-        const diff = touchStartX - touchX;
-        
-        if (Math.abs(diff) > 10) {
-            e.preventDefault(); // منع التمرير الافتراضي
-        }
-    });
-    
-    pricesSliderContainer.addEventListener('touchend', () => {
-        if (!isDragging) return;
-        
-        isDragging = false;
-        
-        // استئناف الأنيميشن بعد تأخير قصير
-        setTimeout(() => {
-            pricesSliderTrack.style.animationPlayState = 'running';
-        }, 500);
-    });
-    
-    // إعادة تشغيل الأنيميشن إذا توقفت
-    const animationObserver = new MutationObserver((mutations) => {
-        mutations.forEach((mutation) => {
-            if (mutation.attributeName === 'style') {
-                const animationState = getComputedStyle(pricesSliderTrack).animationPlayState;
-                if (animationState === 'paused' && !isDragging) {
-                    setTimeout(() => {
-                        pricesSliderTrack.style.animationPlayState = 'running';
-                    }, 3000); // إعادة التشغيل بعد 3 ثواني إذا كانت متوقفة
-                }
-            }
+            card.addEventListener('touchend', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+                this.style.boxShadow = 'none';
+                this.style.borderColor = 'rgba(212, 175, 55, 0.2)';
+            });
         });
-    });
+    }
     
-    animationObserver.observe(pricesSliderTrack, { attributes: true });
-    
-    // كشف توقف الأنيميشن
-    let lastAnimationTime = Date.now();
-    const checkAnimation = () => {
-        const currentTime = Date.now();
-        const computedStyle = getComputedStyle(pricesSliderTrack);
-        const isAnimating = computedStyle.animationPlayState === 'running';
-        
-        if (!isAnimating && (currentTime - lastAnimationTime > 10000)) {
-            console.log('إعادة تشغيل أنيميشن بطاقات الأسعار');
-            pricesSliderTrack.style.animation = 'none';
-            setTimeout(() => {
-                updateAnimation();
-            }, 50);
-            lastAnimationTime = currentTime;
-        }
-        
-        setTimeout(checkAnimation, 5000);
+    // التأكد من أن البطاقات تظهر بشكل صحيح
+    const checkCardsVisibility = () => {
+        const priceCards = document.querySelectorAll('.price-card');
+        priceCards.forEach((card, index) => {
+            const countryName = card.querySelector('.country-name').textContent;
+            const priceAmount = card.querySelector('.price-amount').textContent;
+            console.log(`البطاقة ${index + 1}: ${countryName} - ${priceAmount} - مرئية`);
+        });
     };
     
-    setTimeout(checkAnimation, 10000);
-}
-
-// التأكد من تشغيل الأنيميشنات المحدثة
-if (typeof ThiqalAnimations !== 'undefined') {
-    ThiqalAnimations.initPriceCardsAnimation = initPriceCardsAnimation;
-}
+    setTimeout(checkCardsVisibility, 1000);
+});
 </script>
     <!-- Video Demo Section - التصميم الأصلي -->
     <section class="video-demo-section" id="video-demo">
