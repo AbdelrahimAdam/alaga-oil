@@ -2560,7 +2560,7 @@
                     </div>
 
                     <!-- Static Prices Grid -->
-                    <div class="static-prices-grid">
+                    <div class="static-prices-grid" id="prices-section">
                         <div class="price-card">
                             <div class="price-country">
                                 <span class="country-flag-icon">🇸🇩</span>
@@ -2587,7 +2587,7 @@
                                 <span class="country-name">مصر</span>
                             </div>
                             <div class="price-amount">1,500</div>
-                            <span class="price-currency">جنيه مصري</span>
+                                <span class="price-currency">جنيه مصري</span>
                             <div class="price-note">توصيل خلال 48 ساعة</div>
                         </div>
                     </div>
@@ -2603,6 +2603,9 @@
                         </a>
                         <a href="https://youtube.com/@successful_nurse?si=hWoKdoKOm8mFPBwK" target="_blank" class="social-link" aria-label="يوتيوب">
                             <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="#prices-section" class="social-link whatsapp-link" aria-label="واتساب للاستفسار عن الأسعار">
+                            <i class="fab fa-whatsapp"></i>
                         </a>
                     </div>
                 </div>
@@ -2772,6 +2775,88 @@
         font-size: 12px;
     }
 
+    /* Social Links مع رابط واتساب */
+    .social-links {
+        display: flex;
+        gap: var(--spacing-sm);
+        justify-content: center;
+        margin-top: var(--spacing-lg);
+    }
+
+    .social-link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        border-radius: var(--radius-circle);
+        background: rgba(212, 175, 55, 0.1);
+        color: var(--color-gold);
+        font-size: var(--text-lg);
+        transition: var(--transition-normal);
+        border: 1px solid rgba(212, 175, 55, 0.3);
+        text-decoration: none;
+        position: relative;
+    }
+
+    .social-link:hover {
+        background: var(--color-gold);
+        color: var(--color-black);
+        transform: translateY(-3px);
+        box-shadow: var(--shadow-gold);
+    }
+
+    /* تصميم خاص لرابط واتساب */
+    .social-link.whatsapp-link {
+        background: rgba(37, 211, 102, 0.1);
+        border-color: rgba(37, 211, 102, 0.3);
+        color: #25D366;
+        position: relative;
+    }
+
+    .social-link.whatsapp-link:hover {
+        background: #25D366;
+        color: white;
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+    }
+
+    /* تأثير للواتساب */
+    .social-link.whatsapp-link::after {
+        content: "الأسعار";
+        position: absolute;
+        top: -25px;
+        right: 50%;
+        transform: translateX(50%);
+        background: rgba(37, 211, 102, 0.9);
+        color: white;
+        padding: 4px 8px;
+        border-radius: 4px;
+        font-size: 10px;
+        font-weight: 600;
+        white-space: nowrap;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        pointer-events: none;
+        z-index: 100;
+    }
+
+    .social-link.whatsapp-link:hover::after {
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(50%) translateY(-2px);
+    }
+
+    /* تحسينات إضافية للواتساب على الموبايل */
+    @media (max-width: 767px) {
+        .social-link.whatsapp-link::after {
+            top: -30px;
+            font-size: 9px;
+            padding: 3px 6px;
+        }
+    }
+
     /* تعديلات للديسكتوب - إزالة scrollable container للنص */
     @media (min-width: 768px) {
         .hero-content-card {
@@ -2822,6 +2907,17 @@
         
         .price-note {
             font-size: 12px;
+        }
+        
+        /* تحسين الروابط الاجتماعية على الديسكتوب */
+        .social-links {
+            gap: var(--spacing-md);
+        }
+        
+        .social-link {
+            width: 48px;
+            height: 48px;
+            font-size: var(--text-xl);
         }
     }
 
@@ -2905,6 +3001,16 @@
         .price-note {
             font-size: 9px;
         }
+        
+        .social-links {
+            gap: 12px;
+        }
+        
+        .social-link {
+            width: 42px;
+            height: 42px;
+            font-size: var(--text-base);
+        }
     }
 
     /* تحسينات للأجهزة الصغيرة جداً */
@@ -2940,19 +3046,16 @@
         .price-note {
             font-size: 8px;
         }
-    }
-
-    /* تحسينات إضافية */
-    .price-card:nth-child(1) {
-        border-left: 3px solid rgba(40, 167, 69, 0.5);
-    }
-    
-    .price-card:nth-child(2) {
-        border-left: 3px solid rgba(212, 175, 55, 0.5);
-    }
-    
-    .price-card:nth-child(3) {
-        border-left: 3px solid rgba(23, 162, 184, 0.5);
+        
+        .social-links {
+            gap: 10px;
+        }
+        
+        .social-link {
+            width: 40px;
+            height: 40px;
+            font-size: var(--text-sm);
+        }
     }
 
     /* تأثيرات دخول بطيئة */
@@ -2987,7 +3090,7 @@
 </style>
 
 <script>
-// إزالة كل كود الأنيميشن السابق وجعله ثابتاً
+// إضافة ID للقسم للتمرير إليه
 document.addEventListener('DOMContentLoaded', function() {
     // إزالة أي أنيميشن موجود على بطاقات الأسعار
     const staticPricesGrid = document.querySelector('.static-prices-grid');
@@ -3035,6 +3138,54 @@ document.addEventListener('DOMContentLoaded', function() {
     };
     
     setTimeout(checkCardsVisibility, 1000);
+    
+    // إضافة وظيفة لرابط واتساب للانتقال إلى قسم الأسعار
+    const whatsappLink = document.querySelector('.social-link.whatsapp-link');
+    if (whatsappLink) {
+        whatsappLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const pricesSection = document.getElementById('prices-section');
+            if (pricesSection) {
+                // حساب موقع قسم الأسعار مع تعويض ارتفاع الهيدر
+                const headerHeight = document.querySelector('#main-header').offsetHeight || 70;
+                const sectionPosition = pricesSection.offsetTop - headerHeight;
+                
+                // التمرير السلس إلى قسم الأسعار
+                window.scrollTo({
+                    top: sectionPosition,
+                    behavior: 'smooth'
+                });
+                
+                // إضافة تأثير مرئي للبطاقات
+                const priceCards = document.querySelectorAll('.price-card');
+                priceCards.forEach((card, index) => {
+                    setTimeout(() => {
+                        card.style.transform = 'translateY(-10px)';
+                        card.style.boxShadow = '0 15px 30px rgba(212, 175, 55, 0.4)';
+                        card.style.borderColor = 'var(--color-gold)';
+                        
+                        setTimeout(() => {
+                            card.style.transform = 'translateY(0)';
+                            card.style.boxShadow = '';
+                            card.style.borderColor = '';
+                        }, 1000);
+                    }, index * 100);
+                });
+            }
+        });
+        
+        // إضافة تأثير hover إضافي
+        whatsappLink.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-3px) scale(1.1)';
+            this.style.boxShadow = '0 8px 20px rgba(37, 211, 102, 0.3)';
+        });
+        
+        whatsappLink.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0) scale(1)';
+            this.style.boxShadow = '';
+        });
+    }
 });
 </script>
     <!-- Video Demo Section - التصميم الأصلي -->
