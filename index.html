@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="زيت العلقه الأصلي | زيت العلقه - التركيبة الطبيعية لدعم الحيوية الرجالية">
-    <meta name="keywords" content="زيت العلقه, صحة رجالية, منتجات طبيعية, ثقة, رجولة, دعم فني">
-    <title>زيت العلقه| زيت العلقه</title>
+    <meta name="description" content="زيت العلق الأصلي | زيت العلق - التركيبة الطبيعية لدعم الحيوية الرجالية">
+    <meta name="keywords" content="زيت العلق, صحة رجالية, منتجات طبيعية, ثقة, رجولة, دعم فني">
+    <title>زيت العلق| زيت العلق</title>
     <!-- Google Search Console Verification -->
     <meta name="google-site-verification"content="5EZpaRPY-F02w-IGuucQZXRTo-2KK0fhG0RZ-jNUtPY"/>
     <!-- Favicon -->
@@ -419,10 +419,11 @@
         /* Hero Section - Mobile First (نصف الشاشة) */
         .hero {
             position: relative;
-            min-height: 50vh; /* نصف الشاشة على الجوال */
+            min-height: auto;
             display: flex;
             align-items: center;
             padding-top: 70px;
+            padding-bottom: 2rem;
             background-color: var(--color-black);
             overflow: hidden;
             width: 100%;
@@ -465,11 +466,11 @@
             backdrop-filter: blur(15px);
             border-radius: var(--radius-lg);
             padding: var(--spacing-lg);
-            max-width: 550px;
+            max-width: 100%;
             width: 100%;
             border: 1px solid rgba(212, 175, 55, 0.15);
             box-shadow: var(--shadow-xl);
-            margin-right: 5%;
+            margin-right: 0;
             height: auto;
             min-height: unset;
         }
@@ -515,13 +516,33 @@
             max-width: 600px;
         }
 
-        .hero-actions {
-            display: flex;
-            flex-direction: column;
-            gap: var(--spacing-sm);
-            margin-bottom: var(--spacing-md);
-            width: 100%;
+        .hero-description p {
+            margin-bottom: var(--spacing-sm);
         }
+
+        .hero-description strong {
+            color: var(--color-gold);
+            font-weight: 600;
+        }
+
+        .hero-description ul {
+            margin: var(--spacing-sm) 0 var(--spacing-sm) var(--spacing-md);
+        }
+
+        .hero-description li {
+            margin-bottom: var(--spacing-xs);
+            position: relative;
+            padding-right: 1.5rem;
+        }
+
+        .hero-description li:before {
+            content: "•";
+            color: var(--color-gold);
+            position: absolute;
+            right: 0;
+        }
+
+        /* Hero Actions تمت إزالته بناءً على الطلب */
 
         .hero-scroll-indicator {
             display: flex;
@@ -588,6 +609,102 @@
             color: var(--color-black);
             transform: translateY(-3px);
             box-shadow: var(--shadow-gold);
+        }
+
+        /* Sliding Prices Banner */
+        .prices-banner {
+            margin-top: var(--spacing-lg);
+            padding: var(--spacing-md) 0;
+            background: rgba(212, 175, 55, 0.05);
+            border-radius: var(--radius-md);
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .prices-container {
+            display: flex;
+            width: 100%;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            padding: var(--spacing-sm);
+            gap: var(--spacing-md);
+            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none; /* IE and Edge */
+        }
+
+        .prices-container::-webkit-scrollbar {
+            display: none; /* Chrome, Safari, Opera */
+        }
+
+        .price-slide-track {
+            display: flex;
+            gap: var(--spacing-md);
+            animation: slideRTL 30s linear infinite;
+        }
+
+        .price-card {
+            flex: 0 0 auto;
+            width: 150px;
+            background: rgba(26, 26, 26, 0.8);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-sm);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            text-align: center;
+            transition: var(--transition-normal);
+            backdrop-filter: blur(10px);
+        }
+
+        .price-card:hover {
+            transform: translateY(-3px);
+            border-color: var(--color-gold);
+            box-shadow: var(--shadow-md);
+        }
+
+        .price-country {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--spacing-xs);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .country-flag-icon {
+            font-size: var(--text-lg);
+        }
+
+        .country-name {
+            font-size: var(--text-sm);
+            color: var(--color-white);
+            font-weight: 500;
+        }
+
+        .price-amount {
+            font-size: var(--text-xl);
+            font-weight: 700;
+            color: var(--color-gold);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .price-currency {
+            font-size: var(--text-xs);
+            color: var(--color-light-gray);
+            display: block;
+        }
+
+        .price-note {
+            font-size: var(--text-xs);
+            color: var(--color-lighter-gray);
+            margin-top: var(--spacing-xs);
+        }
+
+        @keyframes slideRTL {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
         }
 
         /* Video Section - التصميم الأصلي تماماً */
@@ -1831,7 +1948,11 @@
             }
 
             .hero {
-                min-height: 50vh; /* بقي نصف الشاشة */
+                min-height: auto;
+            }
+
+            .price-card {
+                width: 180px;
             }
 
             .story-grid,
@@ -1864,7 +1985,7 @@
             }
 
             .hero {
-                min-height: 50vh; /* بقي نصف الشاشة */
+                min-height: auto;
             }
 
             .hero-content-wrapper {
@@ -1873,15 +1994,11 @@
 
             .hero-content-card {
                 margin-right: 5%;
+                max-width: 90%;
             }
 
-            .hero-actions {
-                flex-direction: row;
-                max-width: none;
-            }
-
-            .btn {
-                width: auto;
+            .price-card {
+                width: 200px;
             }
 
             .mobile-menu-btn {
@@ -1965,7 +2082,15 @@
             }
 
             .hero {
-                min-height: 50vh; /* بقي نصف الشاشة */
+                min-height: auto;
+            }
+
+            .hero-content-card {
+                max-width: 80%;
+            }
+
+            .price-card {
+                width: 220px;
             }
 
             .hero-title .hero-main {
@@ -2013,7 +2138,15 @@
             }
 
             .hero {
-                min-height: 50vh; /* بقي نصف الشاشة على الديسكتوب */
+                min-height: auto;
+            }
+
+            .hero-content-card {
+                max-width: 70%;
+            }
+
+            .price-card {
+                width: 250px;
             }
         }
 
@@ -2034,6 +2167,10 @@
                 animation: none;
                 opacity: 1;
                 transform: none;
+            }
+
+            .price-slide-track {
+                animation: none;
             }
         }
 
@@ -2069,7 +2206,7 @@
 <body>
     <!-- Loading Screen -->
     <div id="loading-screen">
-        <div class="logo-reveal">زيت العلقه</div>
+        <div class="logo-reveal">زيت العلق</div>
         <div class="loading-subtitle">قوة بهدوء... ثقة تدوم</div>
     </div>
 
@@ -2077,8 +2214,8 @@
     <header id="main-header">
         <div class="container header-container">
             <a href="#home" class="brand-logo">
-                <img src="assets/images/logo.png" alt="زيت العلقه Logo" class="logo-img">
-                <span class="logo-text">زيت العلقه</span>
+                <img src="assets/images/logo.png" alt="زيت العلق Logo" class="logo-img">
+                <span class="logo-text">زيت العلق</span>
             </a>
 
             <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="فتح القائمة">
@@ -2105,33 +2242,113 @@
     <!-- Hero Section - نصف الشاشة -->
     <section class="hero" id="home">
         <div class="hero-background">
-            <img src="assets/images/hero-bg.jpg" alt="زيت العلقه الأصلي" class="hero-product-image">
+            <img src="assets/images/hero-bg.jpg" alt="زيت العلق الأصلي" class="hero-product-image">
         </div>
 
         <div class="container">
             <div class="hero-content-wrapper">
                 <div class="hero-content-card">
                     <div class="hero-content">
-                        <div class="brand-tagline">زيت العلقه</div>
+                        <div class="brand-tagline">زيت العلق</div>
                         <h1 class="hero-title">
-                            <span class="hero-main">زيت العلقه الأصلي</span>
+                            <span class="hero-main">زيت العلق الأصلي</span>
                             <span class="hero-sub">قوة تستمر... بسلاسة الطبيعة وأمانها</span>
                         </h1>
 
-                        <p class="hero-description">
-                            تركيبة حصرية طبيعية 100%، صممت بعناية لدعم الحيوية الرجالية وتعزيز الثقة.
-                            مزيج فريد من العلَّقين الطبيعي والمكونات الفعالة لتحسين تدفق الدم بشكل آمن.
-                        </p>
+                        <div class="hero-description">
+                            <p><strong>يحتوي زيت العلق على مكونات فريدة، تساعد في علاج معظم المشاكل الجنسية. كتكبير القضيب و علاج ضعف الانتصاب و القذف السريع. حيث يحتوي زيت العلق على مادة العلقين (Hirudin) المستخرجة من لعاب العلقة، إضافة إلى مادة Vasodilator.</strong></p>
+                            
+                            <p><strong>يعمل زيت العلق على توسيع الأوعية الدموية، و توسيع التجاويف الاسفنجية في القضيب عن طريق تكبيرها. مما يزيد من حجم القضيب.</strong></p>
+                            
+                            <p><strong>بالإضافة إلى إن مكونات زيت دودة العلق يسهل مرور كمية كبيرة من الدم للقضيب و لهذا سيحدث الانتصاب أكثر سهولة.</strong></p>
+                            
+                            <p><strong>يعمل زيت العلق كذلك على تأخير القذف.</strong></p>
+                            
+                            <p><strong>طريقة الاستخدام</strong></p>
+                            
+                            <p><strong>*كيفية استعمال زيت العلق؟</strong></p>
+                            <ul>
+                                <li>قم بغسل القضيب قبل استعمال الزيت</li>
+                                <li>قم برش القضيب بزيت العلق في اعلى القضيب واسفله قم بدهنه لمدة دقيقتين واتركه لمدة ٦ ساعات او حتى الصباح وقم بغسله</li>
+                                <li>يستعمل الزيت يوميا قبل النوم مباشره</li>
+                                <li>تستمر بالاستعمال لمدة اربعه اسابيع وستلاحظ زياده الحجم واستعادة قوة الانتصاب وتاخير القذف خلال اول اسبوعين من الاستعمال</li>
+                            </ul>
+                            
+                            <p><strong>*لايوجد له اي اضرار جانبيه</strong></p>
+                            <p><strong>*نتائج دائمه وفعاله وامنه ومضمونه</strong></p>
+                        </div>
 
-                        <div class="hero-actions">
-                            <a href="#contact" class="btn btn-primary btn-large">
-                                <i class="fab fa-whatsapp"></i>
-                                <span>اطلب الآن عبر واتساب</span>
-                            </a>
-                            <a href="#video-demo" class="btn btn-secondary btn-large">
-                                <i class="fas fa-play-circle"></i>
-                                <span>شاهد الفيديو التوضيحي</span>
-                            </a>
+                        <!-- Prices Banner Section -->
+                        <div class="prices-banner">
+                            <div class="prices-container">
+                                <div class="price-slide-track">
+                                    <!-- Sudan -->
+                                    <div class="price-card">
+                                        <div class="price-country">
+                                            <span class="country-flag-icon">🇸🇩</span>
+                                            <span class="country-name">السودان</span>
+                                        </div>
+                                        <div class="price-amount">155,000</div>
+                                        <span class="price-currency">جنيه سوداني</span>
+                                        <div class="price-note">التوصيل مجاناً</div>
+                                    </div>
+
+                                    <!-- Saudi Arabia -->
+                                    <div class="price-card">
+                                        <div class="price-country">
+                                            <span class="country-flag-icon">🇸🇦</span>
+                                            <span class="country-name">السعودية</span>
+                                        </div>
+                                        <div class="price-amount">300</div>
+                                        <span class="price-currency">ريال سعودي</span>
+                                        <div class="price-note">شحن سريع 2-3 أيام</div>
+                                    </div>
+
+                                    <!-- Egypt -->
+                                    <div class="price-card">
+                                        <div class="price-country">
+                                            <span class="country-flag-icon">🇪🇬</span>
+                                            <span class="country-name">مصر</span>
+                                        </div>
+                                        <div class="price-amount">1,500</div>
+                                        <span class="price-currency">جنيه مصري</span>
+                                        <div class="price-note">توصيل خلال 48 ساعة</div>
+                                    </div>
+
+                                    <!-- UAE -->
+                                    <div class="price-card">
+                                        <div class="price-country">
+                                            <span class="country-flag-icon">🇦🇪</span>
+                                            <span class="country-name">الإمارات</span>
+                                        </div>
+                                        <div class="price-amount">350</div>
+                                        <span class="price-currency">درهم إماراتي</span>
+                                        <div class="price-note">توصيل يومي</div>
+                                    </div>
+
+                                    <!-- Kuwait -->
+                                    <div class="price-card">
+                                        <div class="price-country">
+                                            <span class="country-flag-icon">🇰🇼</span>
+                                            <span class="country-name">الكويت</span>
+                                        </div>
+                                        <div class="price-amount">28</div>
+                                        <span class="price-currency">دينار كويتي</span>
+                                        <div class="price-note">شحن مجاني</div>
+                                    </div>
+
+                                    <!-- Qatar -->
+                                    <div class="price-card">
+                                        <div class="price-country">
+                                            <span class="country-flag-icon">🇶🇦</span>
+                                            <span class="country-name">قطر</span>
+                                        </div>
+                                        <div class="price-amount">350</div>
+                                        <span class="price-currency">ريال قطري</span>
+                                        <div class="price-note">توصيل خلال 24 ساعة</div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
 
                         <div class="hero-scroll-indicator" onclick="scrollToVideo()">
@@ -2157,7 +2374,6 @@
     <section class="video-demo-section" id="video-demo">
         <div class="container video-demo-container">
             <div class="video-demo-header">
-
                 <p class="video-demo-subtitle">فيديو توضيحي يشرح آلية عمل التركيبة الطبيعية ونتائجها المميزة</p>
             </div>
 
@@ -2180,8 +2396,6 @@
                                 <div class="video-placeholder-icon">
                                     <i class="fas fa-play-circle"></i>
                                 </div>
-
-
                             </div>
                         </div>
                     </div>
@@ -2205,7 +2419,6 @@
                                 <div class="video-placeholder-icon">
                                     <i class="fas fa-play-circle"></i>
                                 </div>
-
                             </div>
                         </div>
                     </div>
@@ -2215,7 +2428,7 @@
             <div class="video-cta">
                 <h3 class="video-cta-title">جاهز لتحقيق النتائج التي شاهدتها؟</h3>
                 <p class="video-cta-description">
-                    زيت العلاقة ليس مجرد منتج، بل هو استثمار في صحتك وثقتك بنفسك.
+                    زيت العلق ليس مجرد منتج، بل هو استثمار في صحتك وثقتك بنفسك.
                     انضم إلى آلاف الرجال الذين اختاروا الحل الطبيعي الآمن.
                 </p>
                 <a href="#contact" class="btn btn-primary btn-large video-cta-button">
@@ -2225,8 +2438,6 @@
             </div>
         </div>
     </section>
-
-    <!-- باقي الأقسام تبقى كما هي ... -->
 
     <!-- Product Details Section -->
     <section class="section section-light" id="product">
@@ -2284,7 +2495,7 @@
                 </div>
 
                 <div class="product-header">
-                    <h1 class="product-title">زيت العلاقة الأصلي</h1>
+                    <h1 class="product-title">زيت العلق الأصلي</h1>
                     <p class="product-subtitle">تركيبة حصرية طبيعية لدعم الحيوية الرجالية وتعزيز الثقة</p>
 
                     <div class="product-rating">
@@ -2318,7 +2529,7 @@
             </div>
 
             <div class="product-hero-image">
-                <img src="assets/images/product-main.jpg" alt="زيت العلاقة الأصلي" class="product-main-img">
+                <img src="assets/images/product-main.jpg" alt="زيت العلق الأصلي" class="product-main-img">
             </div>
         </div>
     </section>
@@ -2336,7 +2547,7 @@
                     <div class="story-icon">
                         <i class="fas fa-tint"></i>
                     </div>
-                    <h3 class="story-title">مادة العلَّقين الطبيعية</h3>
+                    <h3 class="story-title">مادة العلقين الطبيعية</h3>
                     <p class="story-description">المكون الرئيسي الذي يدعم الدورة الدموية وتحسين تدفق الدم بشكل طبيعي.</p>
                 </div>
 
@@ -2361,7 +2572,7 @@
                         <i class="fas fa-heartbeat"></i>
                     </div>
                     <h3 class="story-title">دعم الدورة الدموية</h3>
-                    <p class="story-description">يحتوي على مادة العلَّقين الطبيعية التي تدعم صحة الأوعية الدموية.</p>
+                    <p class="story-description">يحتوي على مادة العلقين الطبيعية التي تدعم صحة الأوعية الدموية.</p>
                 </div>
 
                 <div class="story-card">
@@ -2535,7 +2746,7 @@
                         </div>
 
                         <ul class="package-features">
-                            <li><i class="fas fa-check"></i> تركيز عالي من العلَّقين</li>
+                            <li><i class="fas fa-check"></i> تركيز عالي من العلقين</li>
                             <li><i class="fas fa-check"></i> تعبئة فاخرة</li>
                             <li><i class="fas fa-check"></i> دليل استخدام مفصل</li>
                             <li><i class="fas fa-check"></i> متابعة شخصية</li>
@@ -2568,7 +2779,7 @@
                         </div>
 
                         <ul class="package-features">
-                            <li><i class="fas fa-check"></i> تركيز فائق من العلَّقين</li>
+                            <li><i class="fas fa-check"></i> تركيز فائق من العلقين</li>
                             <li><i class="fas fa-check"></i> تعبئة فاخرة مقاومة للكسر</li>
                             <li><i class="fas fa-check"></i> دليل استخدام بالفيديو</li>
                             <li><i class="fas fa-check"></i> متابعة أسبوعية</li>
@@ -2601,7 +2812,7 @@
                         </div>
 
                         <ul class="package-features">
-                            <li><i class="fas fa-check"></i> تركيز مثالي من العلَّقين</li>
+                            <li><i class="fas fa-check"></i> تركيز مثالي من العلقين</li>
                             <li><i class="fas fa-check"></i> تعبئة أنيقة</li>
                             <li><i class="fas fa-check"></i> دليل استخدام باللغة العربية</li>
                             <li><i class="fas fa-check"></i> استشارة مجانية</li>
@@ -3000,11 +3211,11 @@
 
             <div class="faq-accordion">
                 <button class="faq-question">
-                    ما هو زيت العلاقة؟
+                    ما هو زيت العلق؟
                     <i class="fas fa-chevron-down"></i>
                 </button>
                 <div class="faq-answer">
-                    <p>زيت العلاقة هو تركيبة طبيعية حصرية تم تطويرها خصيصاً لدعم الحيوية الرجالية وتعزيز الثقة بالنفس.</p>
+                    <p>زيت العلق هو تركيبة طبيعية حصرية تم تطويرها خصيصاً لدعم الحيوية الرجالية وتعزيز الثقة بالنفس.</p>
                 </div>
 
                 <button class="faq-question">
@@ -3056,8 +3267,8 @@
             <div class="footer-content">
                 <div class="footer-brand">
                     <div class="brand-logo">
-                        <img src="assets/images/logo.png" alt="زيت العلقه Logo" class="footer-logo">
-                        <span class="footer-brand-name">زيت العلقه</span>
+                        <img src="assets/images/logo.png" alt="زيت العلق Logo" class="footer-logo">
+                        <span class="footer-brand-name">زيت العلق</span>
                     </div>
                     <p class="footer-slogan">قوة بهدوء... ثقة تدوم</p>
                     <p class="footer-description">
@@ -3118,7 +3329,7 @@
 
             <div class="footer-bottom">
                 <div class="copyright">
-                    <p>© 2026 زيت العلقه. جميع الحقوق محفوظة.</p>
+                    <p>© 2026 زيت العلق. جميع الحقوق محفوظة.</p>
                     <p class="disclaimer">
                         هذا المنتج لا يُقصد به تشخيص أو علاج أو الشفاء من أي مرض. 
                         استشر طبيبك قبل استخدام أي منتج جديد.
@@ -3283,7 +3494,7 @@
                 button.addEventListener('click', function() {
                     const country = this.getAttribute('data-country');
                     const number = this.getAttribute('data-number');
-                    const message = encodeURIComponent(`مرحباً، أرغب في الاستفسار عن زيت العلقه ${country}.`);
+                    const message = encodeURIComponent(`مرحباً، أرغب في الاستفسار عن زيت العلق ${country}.`);
 
                     const whatsappUrl = `https://wa.me/${number}?text=${message}`;
                     window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
