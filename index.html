@@ -2561,6 +2561,7 @@
 
                     <!-- Static Prices Grid -->
                     <div class="static-prices-grid" id="prices-section">
+                        <!-- Sudan Card -->
                         <div class="price-card">
                             <div class="price-country">
                                 <span class="country-flag-icon">🇸🇩</span>
@@ -2569,8 +2570,17 @@
                             <div class="price-amount">155,000</div>
                             <span class="price-currency">جنيه سوداني</span>
                             <div class="price-note">التوصيل مجاناً</div>
+                            <!-- WhatsApp Button for Sudan -->
+                            <a href="https://wa.me/249920887972" 
+                               target="_blank" 
+                               class="whatsapp-order-button" 
+                               aria-label="طلب من السودان عبر واتساب">
+                                <i class="fab fa-whatsapp"></i>
+                                <span>اطلب الآن</span>
+                            </a>
                         </div>
 
+                        <!-- KSA Card -->
                         <div class="price-card">
                             <div class="price-country">
                                 <span class="country-flag-icon">🇸🇦</span>
@@ -2579,16 +2589,61 @@
                             <div class="price-amount">300</div>
                             <span class="price-currency">ريال سعودي</span>
                             <div class="price-note">شحن سريع 2-3 أيام</div>
+                            <!-- WhatsApp Button for KSA -->
+                            <a href="#" 
+                               onclick="showKSAWhatsappModal()"
+                               class="whatsapp-order-button coming-soon" 
+                               aria-label="رقم واتساب السعودية قريباً">
+                                <i class="fab fa-whatsapp"></i>
+                                <span>قريباً</span>
+                            </a>
                         </div>
 
+                        <!-- Egypt Card -->
                         <div class="price-card">
                             <div class="price-country">
                                 <span class="country-flag-icon">🇪🇬</span>
                                 <span class="country-name">مصر</span>
                             </div>
                             <div class="price-amount">1,500</div>
-                                <span class="price-currency">جنيه مصري</span>
+                            <span class="price-currency">جنيه مصري</span>
                             <div class="price-note">توصيل خلال 48 ساعة</div>
+                            <!-- WhatsApp Button for Egypt -->
+                            <a href="https://wa.me/201036785420" 
+                               target="_blank" 
+                               class="whatsapp-order-button" 
+                               aria-label="طلب من مصر عبر واتساب">
+                                <i class="fab fa-whatsapp"></i>
+                                <span>اطلب الآن</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Modal for KSA WhatsApp -->
+                    <div id="ksaWhatsappModal" class="whatsapp-modal">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h3>رقم واتساب السعودية</h3>
+                                <button class="modal-close" onclick="closeKSAWhatsappModal()">&times;</button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="modal-icon">
+                                    <i class="fab fa-whatsapp"></i>
+                                </div>
+                                <p class="modal-message">رقم واتساب السعودية سيتم توفيره قريباً</p>
+                                <p class="modal-submessage">سيتم إضافة الرقم في أقرب وقت ممكن</p>
+                                <div class="modal-contact">
+                                    <p>يمكنك التواصل معنا عبر:</p>
+                                    <div class="contact-options">
+                                        <a href="https://wa.me/249920887972" target="_blank" class="contact-option">
+                                            <i class="fab fa-whatsapp"></i> واتساب السودان
+                                        </a>
+                                        <a href="https://wa.me/201036785420" target="_blank" class="contact-option">
+                                            <i class="fab fa-whatsapp"></i> واتساب مصر
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
@@ -2637,14 +2692,15 @@
         border: 1px solid rgba(212, 175, 55, 0.2);
         text-align: center;
         backdrop-filter: blur(10px);
-        min-height: 100px;
+        min-height: 130px; /* Increased for WhatsApp button */
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content: space-between;
         align-items: center;
         box-sizing: border-box;
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         width: 100%;
+        position: relative;
     }
 
     .price-card:hover {
@@ -2700,7 +2756,7 @@
     .price-note {
         font-size: 11px;
         color: var(--color-lighter-gray);
-        margin-top: 3px;
+        margin: 3px 0 8px 0;
         line-height: 1.2;
         text-align: center;
         max-width: 100%;
@@ -2708,6 +2764,208 @@
         text-overflow: ellipsis;
         white-space: nowrap;
         padding: 0 4px;
+    }
+
+    /* WhatsApp Order Button */
+    .whatsapp-order-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+        color: white;
+        border: none;
+        border-radius: 20px;
+        padding: 6px 12px;
+        font-size: 11px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        text-decoration: none;
+        width: 90%;
+        max-width: 120px;
+        margin-top: 4px;
+        box-shadow: 0 4px 12px rgba(37, 211, 102, 0.2);
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+    }
+
+    .whatsapp-order-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 18px rgba(37, 211, 102, 0.3);
+        color: white;
+    }
+
+    .whatsapp-order-button:active {
+        transform: translateY(0);
+        box-shadow: 0 2px 8px rgba(37, 211, 102, 0.2);
+    }
+
+    .whatsapp-order-button i {
+        font-size: 14px;
+    }
+
+    .whatsapp-order-button span {
+        font-size: 10px;
+        white-space: nowrap;
+    }
+
+    /* Coming Soon Button Style */
+    .whatsapp-order-button.coming-soon {
+        background: linear-gradient(135deg, #666 0%, #444 100%);
+        cursor: pointer;
+        box-shadow: 0 4px 12px rgba(102, 102, 102, 0.2);
+    }
+
+    .whatsapp-order-button.coming-soon:hover {
+        box-shadow: 0 6px 18px rgba(102, 102, 102, 0.3);
+    }
+
+    /* WhatsApp Modal Styles */
+    .whatsapp-modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.8);
+        backdrop-filter: blur(5px);
+        z-index: 1000;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .modal-content {
+        background: rgba(15, 15, 20, 0.95);
+        border-radius: 16px;
+        width: 90%;
+        max-width: 400px;
+        border: 2px solid var(--color-gold);
+        box-shadow: 0 20px 50px rgba(212, 175, 55, 0.3);
+        overflow: hidden;
+        animation: modalFadeIn 0.3s ease-out;
+    }
+
+    @keyframes modalFadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(-20px) scale(0.9);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+    }
+
+    .modal-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 16px 20px;
+        background: rgba(212, 175, 55, 0.1);
+        border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+    }
+
+    .modal-header h3 {
+        color: var(--color-gold);
+        font-size: 18px;
+        margin: 0;
+    }
+
+    .modal-close {
+        background: none;
+        border: none;
+        color: var(--color-light-gray);
+        font-size: 24px;
+        cursor: pointer;
+        transition: color 0.3s;
+        line-height: 1;
+        padding: 0;
+        width: 30px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+    }
+
+    .modal-close:hover {
+        color: var(--color-gold);
+        background: rgba(212, 175, 55, 0.1);
+    }
+
+    .modal-body {
+        padding: 30px 20px;
+        text-align: center;
+    }
+
+    .modal-icon {
+        font-size: 50px;
+        color: #25D366;
+        margin-bottom: 20px;
+        animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.1); }
+        100% { transform: scale(1); }
+    }
+
+    .modal-message {
+        color: white;
+        font-size: 18px;
+        font-weight: 600;
+        margin-bottom: 10px;
+    }
+
+    .modal-submessage {
+        color: var(--color-lighter-gray);
+        font-size: 14px;
+        margin-bottom: 25px;
+    }
+
+    .modal-contact {
+        margin-top: 25px;
+        padding-top: 20px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .modal-contact p {
+        color: var(--color-lighter-gray);
+        font-size: 14px;
+        margin-bottom: 15px;
+    }
+
+    .contact-options {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .contact-option {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        background: rgba(37, 211, 102, 0.1);
+        color: #25D366;
+        padding: 12px 20px;
+        border-radius: 10px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 14px;
+        transition: all 0.3s;
+        border: 1px solid rgba(37, 211, 102, 0.3);
+    }
+
+    .contact-option:hover {
+        background: #25D366;
+        color: white;
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
     }
 
     /* تعديلات للبطاقة الرئيسية */
@@ -2888,7 +3146,7 @@
         }
         
         .price-card {
-            min-height: 110px;
+            min-height: 140px; /* Adjusted for desktop */
             padding: 16px 12px;
         }
         
@@ -2907,6 +3165,21 @@
         
         .price-note {
             font-size: 12px;
+        }
+        
+        /* WhatsApp Button Desktop */
+        .whatsapp-order-button {
+            padding: 7px 14px;
+            font-size: 12px;
+            max-width: 140px;
+        }
+        
+        .whatsapp-order-button i {
+            font-size: 15px;
+        }
+        
+        .whatsapp-order-button span {
+            font-size: 11px;
         }
         
         /* تحسين الروابط الاجتماعية على الديسكتوب */
@@ -2942,7 +3215,7 @@
         }
         
         .price-card {
-            min-height: 120px;
+            min-height: 150px; /* Adjusted for large desktop */
             padding: 18px 14px;
         }
         
@@ -2966,6 +3239,21 @@
         .price-note {
             font-size: 13px;
         }
+        
+        /* WhatsApp Button Large Desktop */
+        .whatsapp-order-button {
+            padding: 8px 16px;
+            font-size: 13px;
+            max-width: 150px;
+        }
+        
+        .whatsapp-order-button i {
+            font-size: 16px;
+        }
+        
+        .whatsapp-order-button span {
+            font-size: 12px;
+        }
     }
 
     /* تعديلات للموبايل والصغير */
@@ -2977,7 +3265,7 @@
         }
         
         .price-card {
-            min-height: 90px;
+            min-height: 120px; /* Adjusted for mobile */
             padding: 8px 6px;
         }
         
@@ -2999,6 +3287,23 @@
         }
         
         .price-note {
+            font-size: 9px;
+            margin-bottom: 6px;
+        }
+        
+        /* WhatsApp Button Mobile */
+        .whatsapp-order-button {
+            padding: 5px 10px;
+            font-size: 10px;
+            gap: 4px;
+            max-width: 100px;
+        }
+        
+        .whatsapp-order-button i {
+            font-size: 12px;
+        }
+        
+        .whatsapp-order-button span {
             font-size: 9px;
         }
         
@@ -3022,7 +3327,7 @@
         }
         
         .price-card {
-            min-height: 85px;
+            min-height: 115px; /* Adjusted for very small screens */
             padding: 6px 4px;
         }
         
@@ -3044,6 +3349,23 @@
         }
         
         .price-note {
+            font-size: 8px;
+            margin-bottom: 5px;
+        }
+        
+        /* WhatsApp Button Very Small */
+        .whatsapp-order-button {
+            padding: 4px 8px;
+            font-size: 9px;
+            gap: 3px;
+            max-width: 90px;
+        }
+        
+        .whatsapp-order-button i {
+            font-size: 11px;
+        }
+        
+        .whatsapp-order-button span {
             font-size: 8px;
         }
         
@@ -3104,12 +3426,26 @@ document.addEventListener('DOMContentLoaded', function() {
                 this.style.transform = 'translateY(-5px) scale(1.02)';
                 this.style.boxShadow = '0 10px 25px rgba(212, 175, 55, 0.3)';
                 this.style.borderColor = 'var(--color-gold)';
+                
+                // Highlight WhatsApp button on hover
+                const whatsappBtn = this.querySelector('.whatsapp-order-button');
+                if (whatsappBtn && !whatsappBtn.classList.contains('coming-soon')) {
+                    whatsappBtn.style.transform = 'translateY(-2px) scale(1.05)';
+                    whatsappBtn.style.boxShadow = '0 8px 20px rgba(37, 211, 102, 0.4)';
+                }
             });
             
             card.addEventListener('mouseleave', function() {
                 this.style.transform = 'translateY(0) scale(1)';
                 this.style.boxShadow = 'none';
                 this.style.borderColor = 'rgba(212, 175, 55, 0.2)';
+                
+                // Reset WhatsApp button
+                const whatsappBtn = this.querySelector('.whatsapp-order-button');
+                if (whatsappBtn) {
+                    whatsappBtn.style.transform = '';
+                    whatsappBtn.style.boxShadow = '';
+                }
             });
             
             // تأثيرات للموبايل
@@ -3123,6 +3459,31 @@ document.addEventListener('DOMContentLoaded', function() {
                 this.style.transform = 'translateY(0) scale(1)';
                 this.style.boxShadow = 'none';
                 this.style.borderColor = 'rgba(212, 175, 55, 0.2)';
+            });
+        });
+        
+        // إضافة تأثيرات لأزرار واتساب
+        const whatsappButtons = document.querySelectorAll('.whatsapp-order-button:not(.coming-soon)');
+        whatsappButtons.forEach(button => {
+            button.addEventListener('mouseenter', function() {
+                if (!this.classList.contains('coming-soon')) {
+                    this.style.transform = 'translateY(-2px) scale(1.05)';
+                    this.style.boxShadow = '0 8px 20px rgba(37, 211, 102, 0.4)';
+                    
+                    // تأثير اهتزاز خفيف للأيقونة
+                    const icon = this.querySelector('i');
+                    icon.style.animation = 'shake 0.5s ease-in-out';
+                }
+            });
+            
+            button.addEventListener('mouseleave', function() {
+                if (!this.classList.contains('coming-soon')) {
+                    this.style.transform = '';
+                    this.style.boxShadow = '';
+                    
+                    const icon = this.querySelector('i');
+                    icon.style.animation = '';
+                }
             });
         });
     }
@@ -3165,10 +3526,22 @@ document.addEventListener('DOMContentLoaded', function() {
                         card.style.boxShadow = '0 15px 30px rgba(212, 175, 55, 0.4)';
                         card.style.borderColor = 'var(--color-gold)';
                         
+                        // Highlight WhatsApp buttons
+                        const whatsappBtn = card.querySelector('.whatsapp-order-button');
+                        if (whatsappBtn && !whatsappBtn.classList.contains('coming-soon')) {
+                            whatsappBtn.style.transform = 'translateY(-3px) scale(1.1)';
+                            whatsappBtn.style.boxShadow = '0 10px 25px rgba(37, 211, 102, 0.5)';
+                        }
+                        
                         setTimeout(() => {
                             card.style.transform = 'translateY(0)';
                             card.style.boxShadow = '';
                             card.style.borderColor = '';
+                            
+                            if (whatsappBtn && !whatsappBtn.classList.contains('coming-soon')) {
+                                whatsappBtn.style.transform = '';
+                                whatsappBtn.style.boxShadow = '';
+                            }
                         }, 1000);
                     }, index * 100);
                 });
@@ -3186,6 +3559,72 @@ document.addEventListener('DOMContentLoaded', function() {
             this.style.boxShadow = '';
         });
     }
+    
+    // تعريف أنيميشن الاهتزاز
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            10%, 30%, 50%, 70%, 90% { transform: translateX(-2px); }
+            20%, 40%, 60%, 80% { transform: translateX(2px); }
+        }
+    `;
+    document.head.appendChild(style);
+});
+
+// وظائف للمودال
+function showKSAWhatsappModal() {
+    const modal = document.getElementById('ksaWhatsappModal');
+    if (modal) {
+        modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+        
+        // إضافة تأثير عند الظهور
+        modal.style.animation = 'fadeIn 0.3s ease-out';
+    }
+}
+
+function closeKSAWhatsappModal() {
+    const modal = document.getElementById('ksaWhatsappModal');
+    if (modal) {
+        modal.style.animation = 'fadeOut 0.3s ease-out';
+        setTimeout(() => {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }, 250);
+    }
+}
+
+// إغلاق المودال عند النقر خارج المحتوى
+document.addEventListener('DOMContentLoaded', function() {
+    const modal = document.getElementById('ksaWhatsappModal');
+    if (modal) {
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                closeKSAWhatsappModal();
+            }
+        });
+        
+        // إضافة أنيميشن للإغلاق
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fadeIn {
+                from { opacity: 0; }
+                to { opacity: 1; }
+            }
+            @keyframes fadeOut {
+                from { opacity: 1; }
+                to { opacity: 0; }
+            }
+        `;
+        document.head.appendChild(style);
+    }
+    
+    // إضافة تعليمات الاستخدام في وحدة التحكم
+    console.log('أزرار واتساب مضافة:');
+    console.log('السودان: +249920887972');
+    console.log('مصر: +201036785420');
+    console.log('السعودية: سيتم توفير الرقم قريباً');
 });
 </script>
     <!-- Video Demo Section - التصميم الأصلي -->
