@@ -2309,16 +2309,6 @@
                             <span class="price-currency">جنيه مصري</span>
                             <div class="price-note">توصيل خلال 48 ساعة</div>
                         </div>
-                        
-                        <div class="price-card">
-                            <div class="price-country">
-                                <span class="country-flag-icon">🇦🇪</span>
-                                <span class="country-name">الإمارات</span>
-                            </div>
-                            <div class="price-amount">350</div>
-                            <span class="price-currency">درهم إماراتي</span>
-                            <div class="price-note">توصيل يومي</div>
-                        </div>
                     </div>
 
                     <div class="hero-scroll-indicator" onclick="scrollToVideo()">
@@ -2341,37 +2331,45 @@
 </section>
 
 <style>
-    /* Static Prices Grid - تصميم عمودين على الموبايل */
+    /* Static Prices Grid - تصميم محسن يناسب البطاقة */
     .static-prices-grid {
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: var(--spacing-xs);
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
         margin-top: var(--spacing-md);
-        padding: var(--spacing-xs);
+        margin-bottom: var(--spacing-sm);
+        padding: 8px;
         background: rgba(212, 175, 55, 0.05);
-        border-radius: var(--radius-md);
+        border-radius: 8px;
         border: 1px solid rgba(212, 175, 55, 0.1);
+        box-sizing: border-box;
+        width: 100%;
+        max-width: 100%;
+        overflow: hidden;
     }
 
     .price-card {
         background: rgba(26, 26, 26, 0.8);
-        border-radius: var(--radius-sm);
-        padding: var(--spacing-xs);
+        border-radius: 6px;
+        padding: 6px 4px;
         border: 1px solid rgba(212, 175, 55, 0.2);
         text-align: center;
         transition: var(--transition-normal);
         backdrop-filter: blur(10px);
-        min-height: 100px;
+        min-height: 85px;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        box-sizing: border-box;
+        overflow: hidden;
+        flex: 1;
     }
 
     .price-card:hover {
         transform: translateY(-2px);
         border-color: var(--color-gold);
-        box-shadow: var(--shadow-sm);
+        box-shadow: 0 2px 8px rgba(212, 175, 55, 0.2);
     }
 
     .price-country {
@@ -2380,48 +2378,57 @@
         justify-content: center;
         gap: 4px;
         margin-bottom: 2px;
+        width: 100%;
     }
 
     .country-flag-icon {
-        font-size: var(--text-sm);
+        font-size: 12px;
+        flex-shrink: 0;
     }
 
     .country-name {
-        font-size: 0.7rem;
+        font-size: 10px;
         color: var(--color-white);
         font-weight: 500;
         white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 70px;
     }
 
     .price-amount {
-        font-size: var(--text-base);
+        font-size: 14px;
         font-weight: 700;
         color: var(--color-gold);
         margin: 2px 0;
         line-height: 1.1;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 95%;
     }
 
     .price-currency {
-        font-size: 0.65rem;
+        font-size: 10px;
         color: var(--color-light-gray);
         display: block;
         margin-bottom: 1px;
+        line-height: 1.1;
     }
 
     .price-note {
-        font-size: 0.6rem;
+        font-size: 9px;
         color: var(--color-lighter-gray);
         margin-top: 1px;
         line-height: 1.1;
         text-align: center;
-        max-width: 100%;
+        max-width: 95%;
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
         padding: 0 2px;
     }
 
-    /* تعديلات للبطاقة الرئيسية لجعلها أقصر */
+    /* تعديلات للبطاقة الرئيسية */
     .hero {
         min-height: auto;
         padding-top: 70px;
@@ -2432,156 +2439,216 @@
         background: rgba(15, 15, 20, 0.85);
         backdrop-filter: blur(15px);
         border-radius: var(--radius-lg);
-        padding: var(--spacing-md);
-        max-width: 100%;
+        padding: 16px;
         width: 100%;
         border: 1px solid rgba(212, 175, 55, 0.15);
         box-shadow: var(--shadow-xl);
         margin-right: 0;
-        height: auto;
-        min-height: unset;
+        box-sizing: border-box;
+        overflow: hidden;
     }
 
     .hero-title {
-        margin-bottom: var(--spacing-sm);
+        margin-bottom: 12px;
     }
 
     .hero-main {
-        font-size: var(--text-2xl);
+        font-size: 22px;
+        line-height: 1.2;
     }
 
     .hero-sub {
-        font-size: var(--text-base);
+        font-size: 14px;
+        line-height: 1.3;
     }
 
     .hero-description {
-        font-size: var(--text-sm);
+        font-size: 13px;
         line-height: 1.5;
-        margin-bottom: var(--spacing-md);
-        max-height: 280px;
+        margin-bottom: 16px;
+        max-height: 250px;
         overflow-y: auto;
-        padding: var(--spacing-xs);
+        padding: 8px;
         background: rgba(0, 0, 0, 0.2);
-        border-radius: var(--radius-sm);
+        border-radius: 6px;
         border: 1px solid rgba(212, 175, 55, 0.1);
+        box-sizing: border-box;
     }
 
     .hero-description p {
-        margin-bottom: var(--spacing-xs);
+        margin-bottom: 8px;
     }
 
     .hero-description ul {
-        margin: var(--spacing-xs) 0 var(--spacing-xs) var(--spacing-md);
+        margin: 8px 0 8px 16px;
     }
 
     .hero-description li {
-        margin-bottom: 2px;
-        padding-right: 1.2rem;
-        font-size: var(--text-sm);
+        margin-bottom: 4px;
+        padding-right: 14px;
+        font-size: 13px;
     }
 
     .hero-description li:before {
-        font-size: var(--text-sm);
+        font-size: 12px;
     }
 
     /* تعديلات للمقاسات الكبيرة */
     @media (min-width: 375px) {
         .static-prices-grid {
-            gap: var(--spacing-sm);
-            padding: var(--spacing-sm);
+            gap: 10px;
+            padding: 10px;
         }
         
         .price-card {
-            padding: var(--spacing-sm);
-            min-height: 110px;
+            padding: 8px 6px;
+            min-height: 90px;
         }
         
         .price-amount {
-            font-size: var(--text-lg);
+            font-size: 15px;
         }
         
         .country-name {
-            font-size: var(--text-xs);
+            font-size: 11px;
+            max-width: 80px;
         }
         
         .price-currency {
-            font-size: var(--text-xs);
+            font-size: 11px;
         }
         
         .price-note {
-            font-size: 0.7rem;
-            white-space: normal;
-            line-height: 1.2;
+            font-size: 10px;
         }
     }
 
     @media (min-width: 640px) {
         .static-prices-grid {
-            grid-template-columns: repeat(4, 1fr);
-            gap: var(--spacing-sm);
-            padding: var(--spacing-md);
-        }
-        
-        .price-card {
-            min-height: 120px;
-            padding: var(--spacing-md);
-        }
-        
-        .price-amount {
-            font-size: var(--text-xl);
-        }
-        
-        .country-name {
-            font-size: var(--text-sm);
-        }
-        
-        .price-currency {
-            font-size: var(--text-sm);
-        }
-        
-        .price-note {
-            font-size: var(--text-xs);
-        }
-    }
-
-    @media (min-width: 768px) {
-        .hero-content-card {
-            padding: var(--spacing-lg);
-            max-width: 90%;
-        }
-        
-        .hero-main {
-            font-size: var(--text-3xl);
-        }
-        
-        .hero-sub {
-            font-size: var(--text-lg);
-        }
-        
-        .hero-description {
-            font-size: var(--text-base);
-            max-height: 260px;
-        }
-        
-        .static-prices-grid {
-            grid-template-columns: repeat(4, 1fr);
-        }
-    }
-
-    @media (min-width: 1024px) {
-        .hero-content-card {
-            max-width: 80%;
-        }
-        
-        .static-prices-grid {
-            grid-template-columns: repeat(4, 1fr);
-            max-width: 800px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            padding: 12px;
+            max-width: 500px;
             margin-left: auto;
             margin-right: auto;
         }
         
         .price-card {
-            min-height: 130px;
+            min-height: 100px;
+            padding: 10px 8px;
+        }
+        
+        .price-amount {
+            font-size: 18px;
+        }
+        
+        .country-name {
+            font-size: 12px;
+            max-width: 90px;
+        }
+        
+        .country-flag-icon {
+            font-size: 14px;
+        }
+        
+        .price-currency {
+            font-size: 12px;
+        }
+        
+        .price-note {
+            font-size: 11px;
+        }
+        
+        .hero-content-card {
+            padding: 20px;
+        }
+        
+        .hero-main {
+            font-size: 28px;
+        }
+        
+        .hero-sub {
+            font-size: 16px;
+        }
+        
+        .hero-description {
+            font-size: 14px;
+            max-height: 220px;
+        }
+    }
+
+    @media (min-width: 768px) {
+        .hero-content-card {
+            max-width: 95%;
+            padding: 24px;
+        }
+        
+        .hero-main {
+            font-size: 32px;
+        }
+        
+        .hero-sub {
+            font-size: 18px;
+        }
+        
+        .hero-description {
+            font-size: 15px;
+            max-height: 200px;
+        }
+        
+        .static-prices-grid {
+            max-width: 550px;
+            gap: 15px;
+            padding: 15px;
+        }
+        
+        .price-card {
+            min-height: 110px;
+            padding: 12px 10px;
+        }
+        
+        .price-amount {
+            font-size: 20px;
+        }
+        
+        .country-name {
+            font-size: 13px;
+            max-width: 100px;
+        }
+        
+        .price-note {
+            font-size: 12px;
+        }
+    }
+
+    @media (min-width: 1024px) {
+        .hero-content-card {
+            max-width: 90%;
+            padding: 28px;
+        }
+        
+        .static-prices-grid {
+            max-width: 600px;
+            gap: 16px;
+            padding: 16px;
+        }
+        
+        .price-card {
+            min-height: 115px;
+            padding: 14px 12px;
+        }
+        
+        .price-amount {
+            font-size: 22px;
+        }
+        
+        .country-name {
+            font-size: 14px;
+            max-width: 110px;
+        }
+        
+        .price-note {
+            font-size: 13px;
         }
     }
 </style>
